@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+	<title>vue spa</title>
+    <link rel="stylesheet" href="../css/app.css">
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+</head>
+<style>
+</style>
+<body>
+	<div id="app" class="main">
+		<router-link to="/page1">Go to page1</router-link>
+    	<router-link to="/page2">Go to page2</router-link>
+        <router-view></router-view>
+	</div>
+	<template id="page1">
+		<div>
+			<h6>page1</h6>
+			<div @click="login()">button</div>
+			<router-link to="/page2">Go to page2</router-link>
+		</div>
+	</template>
+	<template id="page2">
+		<div>
+			<h6>page2</h6>
+			<router-link to="/page1">Go to page1</router-link>
+		</div>
+	</template>
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script>
+	var page1 = Vue.extend({
+	  template: '#page1',
+	  data: function () {
+	    return {
+	      firstName: 'Walter',
+	      lastName: 'White',
+	      alias: 'Heisenberg'
+	    }
+	  },
+	  methods:{
+		  login:function(){
+		  	alert(1)
+		  }
+	  }
+	})
+
+	var page2 = Vue.extend({
+	  template: '#page2',
+	  data: function () {
+	    return {
+	      firstName: 'Walter',
+	      lastName: 'White',
+	      alias: 'Heisenberg'
+	    }
+	  }
+	})
+
+	// var routes = [
+	// 	{name: 'page1', path: '/page1', component: page1},
+	// 	{name: 'page2', path: '/page2', component: page2},
+	// ]
+	// var router = new VueRouter({
+	// 	routes: routes
+	// })
+
+	var router = new VueRouter({
+		routes: [
+			{name: 'page1', path: '/page1', component: page1},
+			{name: 'page2', path: '/page2', component: page2},
+		]
+	})
+
+	var app = new Vue({
+	  router: router,
+	  data: {
+	  },
+	  mounted:function(){
+	  },
+	  watch:{
+	  	count:function(val){
+
+	  	}
+	  }
+	}).$mount('#app');
+	</script>
+</body>
+</html>

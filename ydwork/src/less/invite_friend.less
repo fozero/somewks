@@ -1,0 +1,45 @@
+// 清除浏览器默认样式
+@import "node_modules/normalize.less/normalize.less";
+.inviteFriend{
+	font-size: 0.32rem;
+	color:#555;
+	padding: 0.48rem 0.4rem;
+	&__award{
+		&__rule{
+			font-size: 0.32rem;
+			tr{
+				height:1.2rem;
+				td{
+					text-align: center;
+					border: 1px solid #eee;
+				}
+				td:first-child{
+					width: 2.933333rem;
+				}
+				td:nth-child(2){
+					padding: 0 0.666667rem;
+				}
+			}
+			tr:nth-child(odd){
+				background: #f7f7f7;
+			}
+		}
+	}
+	&__title{
+		font-size: 0.4rem;
+		color:#333;
+		margin-top: 0.506667rem;
+		margin-bottom: 0.266667rem;
+	}
+	&__txt{
+		line-height: 0.533333rem;
+		&--bold{
+			font-weight: bold;
+			text-decoration: underline;
+			a{
+				    color: #555;
+			}
+		}
+
+	}
+}

@@ -1,0 +1,49 @@
+{
+  "name": "devTpl",
+  "version": "0.1.0",
+  "description": "gulp工程模板",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "serve": "gulp dev"
+  },
+  "homepage": "",
+  "author": "fozero@126.com",
+  "contributors": [
+    {
+      "name": "fozero",
+      "email": "fozero@126.com"
+    }
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.6",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.4.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-csslint": "^1.0.0",
+    "gulp-htmlhint": "^0.3.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-less": "^3.3.0",
+    "gulp-lesshint": "^3.0.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-collector": "^1.2.2",
+    "gulp-sequence": "^0.4.6",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11",
+    "http-proxy-middleware": "^0.18.0",
+    "jshint": "^2.9.4"
+  },
+  "dependencies": {
+    "normalize.less": "^1.0.0"
+  }
+}

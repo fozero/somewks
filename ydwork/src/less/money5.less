@@ -1,0 +1,167 @@
+@import "node_modules/normalize.less/normalize.less";
+html,body{height: 100%;}
+.money5{
+	height: 100%;
+	position: relative;
+	font-size: 0.32rem;
+	background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_bg.jpg') no-repeat center/10.0rem 100%;
+	&__rule{
+		position: absolute;
+		left: 1.106667rem;
+		top: 0.666667rem;
+		width: 1.36rem;
+		height: 1.893333rem;
+	}
+	&__title{
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 2.24rem;
+		width: 5.68rem;
+		height: 3.013333rem;
+	}
+	&__inputs{
+			width: 6.0rem;
+		padding-top: 5.6rem;
+		margin-left: 50%;
+    	transform: translateX(-50%);
+		&__item{
+			&:nth-child(2){
+				    text-align: right;
+				    margin-top: 0.16rem;
+			}
+			input{
+				width: 6.0rem;
+				height: 0.8rem;
+				border-radius: 0.4rem;
+				border: none;
+				text-indent: 0.266667rem;
+				padding: 0.24rem 0;
+				line-height: normal;//解决input placeholder垂直不居中的问题
+				box-sizing: border-box;
+			}
+			&--txt{
+				font-size: 0.266667rem;
+				    color: #ff6a00;
+				    display: inline-block;
+				    line-height: 0.533333rem;
+				    padding-left: 0.266667rem;
+				    span{
+				    	color:#ff4800;
+				    	    text-decoration: underline;
+				    	        font-weight: bold;
+				    	        font-size: 0.346667rem;
+				    }
+			}
+		}
+		&__get{
+			margin-left: 0.773333rem;
+			width: 1.626667rem;
+			height: 1.093333rem;
+		}
+	}
+	.dialog_tip{
+		font-family: 'lizhifont';
+		&--mask{
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.8);
+		}
+		&--content{
+			position: fixed;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%,-50%);
+			width: 8.16rem;
+			height: 3.106667rem;
+			    text-align: center;
+			        color: #9f4e37;
+			background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_dialog_tip_bg.png') no-repeat center/8.16rem 3.106667rem;
+			&__txt{
+				margin-top: 0.986667rem;
+				font-size: 0.373333rem;
+			}
+			&__btns{
+				margin-top: 0.506667rem;
+				.btn{
+					width: 2.4rem;
+					height: 0.826667rem;
+					color: #fff;
+					background: #ff7401;
+					border: none;
+					border-radius: 0.4rem;
+					font-size: 0.4rem;
+				}
+				.btn + .btn{
+					margin-left: 0.266667rem;
+				}
+			}
+		}
+	}
+	.dialog_rule{
+		font-family: 'lizhifont';
+		&--mask{
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.8);
+		}
+		&--content{
+			position: fixed;
+		    top: 50%;
+		    left: 50%;
+		        color: #9f4e37;
+		    transform: translate(-50%,-50%);
+			width: 8.106667rem;
+			height: 9.573333rem;
+			text-align: center;
+			background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_dialog_rule_bg.png') no-repeat center/8.106667rem 9.573333rem;
+			&__title{
+				font-size: 0.48rem;
+				margin-top:0.88rem;
+			}
+			&__txt{
+				margin-top: 0.4rem;
+				font-size: 0.373333rem;
+				line-height: 0.666667rem;
+				&--ico{
+					display: inline-block;
+					width: 0.573333rem;
+					height: 0.666667rem;
+					margin-top: 0.16rem;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_dialog_rule_ico.png') center/0.573333rem 0.666667rem;
+				}
+				&--qrcode{
+					width: 2.0rem;
+					height: 2.0rem;
+					display: block;
+    				margin: 0 auto;
+				}
+			}
+			&__btns{
+				margin-top: 0.506667rem;
+				.btn{
+					width: 2.4rem;
+					height: 0.826667rem;
+					color: #fff;
+					background: #ff7401;
+					border: none;
+					border-radius: 0.4rem;
+					font-size: 0.4rem;
+				}
+			}
+			&_intro{
+				font-size: 0.32rem;
+				text-align: left;
+				line-height: 0.533333rem;
+				padding: 0 0.426667rem;
+				margin-top: 1.733333rem;
+			}
+		}
+	}
+}

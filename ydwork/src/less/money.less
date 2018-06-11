@@ -1,0 +1,306 @@
+// 清除浏览器默认样式
+@import "node_modules/normalize.less/normalize.less";
+html,body{
+	height: 100%;
+	min-height:100%
+}
+// vue未加载完不显示内容
+[v-cloak] {
+  display: none;
+}
+.returnMoney{
+	position: relative;
+	height: 100%;
+	min-height:100%;
+	background:#cdfcd8 url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/bg.png') no-repeat center/100% 100%;
+	// .bg{
+	// 	position: absolute;
+	// 	width: 100%;
+	// 	height: 100%;
+	// background:#cdfcd8 url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/bg.png') no-repeat center/100% 100%;
+	// }
+	.rule{
+		position: absolute;
+		top:0.466667rem;
+		left: 0.4rem;
+			animation:ani_rule 2s infinite alternate;
+		img{
+			width: 2.0rem;
+		}
+	}
+		.leaf_bg1{
+			width: 100%;
+			height: 3.56rem;
+			    position: absolute;
+    			top: 3.733333rem;
+			// animation:ani_title2 1s infinite;
+		}
+		.leaf_bg2{
+			width: 10.0rem;
+			height: 6.146667rem;
+			// left: 2.133333rem;
+			    position: absolute;
+    			// top: 6.133333rem;
+			// animation:ani_title2 1s infinite;
+		}
+		.title01{
+			width: 7.4rem;
+			left: 1.706667rem;
+			    position: absolute;
+    		top: 1.92rem;
+			animation:ani_title1 2s infinite alternate;
+		}
+		.title02{
+			width: 6.0rem;
+			left: 2.133333rem;
+			    position: absolute;
+    			top: 6.133333rem;
+			animation:ani_title2 2s infinite alternate;
+		}
+	.content{
+		    position: relative;
+		top: 8.213333rem;
+		.inputItem{
+			text-align: center;
+			input{
+				width: 9.146667rem;
+				font-size: 0.48rem;
+				padding: 0.4rem 0;
+				border: none;
+				border-radius: 1.066667rem;
+				text-indent: 0.8rem;
+				color:#666; 
+			}
+		}
+		.inputItem_des{
+			margin-top: 0.24rem;
+			font-size: 0.32rem;
+			color:#fd7e5b;
+			    padding-left: 1.333333rem;
+		}
+		.getBtn{
+			    position: absolute;
+			    top:2.933333rem;
+			width: 5.146667rem;
+			height: 1.36rem;
+			line-height: 1.36rem;
+			background: #fd7e5b;
+			color:#fff;
+			font-size: 0.373333rem;
+			border-radius: 1.066667rem;
+			    text-align: center;
+			        z-index: 3;
+	    	left : 50% ; transform: translateX(-50%);
+			.btn{
+				width: 1.493333rem;
+				height: 0.64rem;
+				vertical-align: middle;
+				display: inline-block;
+				background: url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/get_btn.png') center/1.493333rem 0.64rem;
+			}
+		}
+	}
+	.footer_bg{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 4.613333rem;
+			background: url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/footer_bg.png') no-repeat center/100% 4.613333rem;
+			z-index: 2;
+	}
+	.leaf1{
+			position: absolute;
+			left: 1.786667rem;
+			bottom: 0;
+			width: 2.88rem;
+			animation:ani_leaf1 1s infinite alternate;
+	}
+	.leaf2{
+			position: absolute;
+			left: 4.88rem;
+			bottom: 0;
+			width: 2.186667rem;
+			animation:ani_leaf2 2s infinite alternate;
+	}
+	.little_leaf_top{
+			position: absolute;
+			top: 1.173333rem;
+			right: 0;
+			width: 1.52rem;
+	}
+	.little_leaf_left{
+			position: absolute;
+			left: 0;
+			    bottom: 0;
+			width: 1.493333rem;
+			z-index: 3;
+			animation:ani_little_leaft_left 1s infinite alternate;
+	}
+	.little_leaf_right{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 1.453333rem;
+			z-index: 3;
+			animation:ani_little_leaft_right 1s infinite alternate;
+	}
+	.layer{
+		width: 100%;
+	    height: 100%;
+	    position: fixed;
+	    left: 0;
+	    top: 0;
+	    background:rgba(0,0,0,0.8);
+	        z-index: 4;
+	}
+	.rule_layer{
+		.ruleWin{
+			position: absolute;
+			top:1.786667rem;
+			width: 9.2rem;
+	    	height: 11.413333rem;
+	    	text-align: center;
+	    	left : 50% ; transform: translateX(-50%);
+	    	background:url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/rule_bg.png') no-repeat center/9.2rem 11.413333rem;
+	    	    z-index: 5;
+	    	img{
+	    		width: 8.373333rem;
+	    		margin-top: 0.826667rem;
+	    	}
+		}
+		.ruleWinBg{
+			position: absolute;
+			top:1.653333rem;
+			width: 100%;
+	    	height: 9.226667rem;
+	    	left : 50% ; transform: translateX(-50%);
+	    	background:url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/rule_layer_bg.png') no-repeat center/100% 9.226667rem;
+	    	    z-index: 5;
+		}
+	}
+	.tip_layer{
+		.tipWin{
+			position: absolute;
+			width: 8.266667rem;
+			height: 3.6rem;
+			background: #cdfcd8;
+			text-align: center;
+			top:6.133333rem;
+	    	left : 50% ; transform: translateX(-50%);
+			border-radius: 0.4rem;
+			    z-index: 5;
+		}
+		.tipWinCon{
+			position: absolute;
+			background: #cdfcd8;
+			top:7.066667rem;
+	    	left : 50% ; transform: translateX(-50%);
+	    	    text-align: center;
+	    	    z-index: 7;
+			img{
+				width: 5.733333rem;
+			}
+			.btnSure{
+				width: 2.8rem;
+				height: 1.066667rem;
+				line-height: 1.066667rem;
+				background: #fd7e5b;
+				border-radius: 1.066667rem;
+				margin: 0.56rem auto 0;
+				text-align: center;
+				.sure{
+					width: 1.2rem;
+					height: 0.533333rem;
+					vertical-align: middle;
+					display: inline-block;
+					background: url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/tip_btn01.png') center/1.2rem 0.533333rem;
+				}
+			}
+			.loginBtns{
+				width: 6.4rem;
+				.btnCancel{
+					width: 2.8rem;
+					height: 1.066667rem;
+					line-height: 1.066667rem;
+					background: #3da63d;
+					border-radius: 1.066667rem;
+					margin-top: 0.56rem;
+					text-align: center;
+					display: inline-block;
+					.cancel{
+						width: 1.2rem;
+						height: 0.533333rem;
+						vertical-align: middle;
+						display: inline-block;
+						background: url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/tip_btn_cancel.png') center/1.2rem 0.533333rem;
+					}
+				}
+				.btnLogin{
+					width: 2.8rem;
+					height: 1.066667rem;
+					line-height: 1.066667rem;
+					background: #fd7e5b;
+					border-radius: 1.066667rem;
+					margin-top: 0.56rem;
+					margin-left: 0.613333rem;
+					text-align: center;
+					display: inline-block;
+					.login{
+						width: 1.2rem;
+						height: 0.533333rem;
+						vertical-align: middle;
+						display: inline-block;
+						background: url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/tip_btn_login.png') center/1.2rem 0.533333rem;
+					}
+				}
+			}
+		}
+		.tipWinBg{
+			position: absolute;
+			top:1.653333rem;
+			width: 100%;
+	    	height: 6.84rem;
+	    	top:5.866667rem;
+	    	left : 50% ; transform: translateX(-50%);
+	    	background:url('https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/tip_layer_bg.png') no-repeat center/100% 6.84rem;
+	    	    z-index: 6;
+		}
+	}
+}
+@keyframes ani_rule
+{
+	0%   {    left: 0.4rem;}
+	100% {        left: 0.6rem;}
+}
+@keyframes ani_title1
+{
+	0%   {    top: 1.92rem;}
+	100% {        top: 2rem;}
+}
+@keyframes ani_title2
+{
+	0%   {top: 6.133333rem;}
+	100% {top: 6.08rem;}
+}
+@keyframes ani_leaf1
+{
+	0%   {left: 1.786667rem;}
+	100% {left: 1.84rem;}
+}
+@keyframes ani_leaf2
+{
+	0%   {bottom: 0;}
+	100% {bottom: 0.066667rem;}
+}
+
+@keyframes ani_little_leaft_left
+{
+	0%   {bottom: 0;}
+	100% {    bottom: 0.026667rem;}
+}
+@keyframes ani_little_leaft_right
+{
+	0%   {bottom: 0;}
+	100% {    bottom: 0.013333rem;}
+}

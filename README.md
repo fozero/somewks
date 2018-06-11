@@ -8,7 +8,7 @@
 - [消夏补贴来袭，轻松拿返现](https://github.com/fozero/somewks/blob/master/month6-xxbt/src/index.html)
 
 
-### APP H5
+### APP H5&微信
 
 - [积分商城6月上新](https://github.com/fozero/somewks/blob/master/new61/src/app.html)
 

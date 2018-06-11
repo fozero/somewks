@@ -1,0 +1,576 @@
+// 清除浏览器默认样式
+@import "node_modules/normalize.less/normalize.less";
+html,body{
+	height: 100%;
+	min-height: 100%;
+}
+.main{
+	height: 100%;
+	width: 100%;
+	.noScroll{
+		overflow: hidden;
+	}
+	// 清除浮动
+	.clearfix{
+		&:after{
+			visibility: hidden;
+			display: block;
+			font-size: 0;
+			content: " ";
+			clear: both;
+			height: 0;
+		}
+	}
+	.layer{
+		width: 100%;
+	    height: 100%;
+	    position: fixed;
+	     left: 0;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    overflow: hidden;
+	    outline: 0;
+	    background:rgba(0,0,0,0.8);
+	        z-index: 999;
+	}
+			.login_btn{
+				color: #fff;
+			    		width: 3.666667rem;
+			    		height: 0.88rem;
+			    		display: inline-block;
+			    		line-height: 0.88rem;
+			    		background: #fec519;
+			    		// margin: 1.48rem auto 0.693333rem;
+			    		text-align: center;
+			    		border-radius: 0.133333rem;
+  						box-shadow: 0px 0.066667rem 0.066667rem rgba(99,155,34,0.8);
+  						font-size: 0.373333rem;
+			}
+	.table{
+	    width: 8.16rem;
+		text-align: center;
+	    margin: 0.8rem auto 0;
+	    line-height: 0.8rem;
+	    border-collapse: separate;
+	    .thead{
+	    	font-weight: bold;
+	    	td{    
+	    		border-top: 1px solid #fff;
+	    		  &:first-child{
+			    	    border-top-left-radius: 0.266667rem;
+			    }
+	    		  &:last-child{   
+			    	border-top-right-radius: 0.266667rem;
+			    }
+	    	}
+	    }
+	    tr{
+			td{
+		        border-left: 1px solid #fff;
+		            border-bottom: 1px solid #fff;
+			    &:last-child{
+			    	border-right:1px solid #fff;
+			    }
+			    .bonus_rule_ic{
+			    	width: 0.56rem;
+			    	height: 0.506667rem;
+			    	display: inline-block;
+		    	    vertical-align: middle;
+					margin-right: 0.133333rem;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/ic_bonus_rule.png') no-repeat center/0.56rem 0.506667rem;
+			    }
+			}
+			&:last-child td{
+				&:first-child{
+					border-bottom-left-radius: 0.266667rem;
+				}
+				&:last-child{
+					border-bottom-right-radius: 0.266667rem;
+				}
+			}
+    	}
+	}
+	.page1{
+		position: relative;
+		height: 100%;
+		width: 100%;
+		background:url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/portal_bg_leaf.png') no-repeat bottom/100% 1.866667rem,
+		url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/portal_bg.jpg') no-repeat center/100% auto;
+		// background:#cdfcd8 url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/portal_bg.jpg') no-repeat center/100% 100%;
+		.portal_ic1{
+			position: absolute;
+			width: 1.893333rem;
+			height: 1.88rem;
+			top: 10.56rem;
+			left: 1.546667rem;
+			animation:ani_portal_ic1 2s infinite alternate;
+		}
+		.portal_ic2{
+			position: absolute;
+			width: 1.893333rem;
+			height: 1.88rem;
+			top: 11.146667rem;
+			left: 7.6rem;
+			animation:ani_portal_ic2 2s infinite alternate;
+		}
+		.portal_ic3{
+			position: absolute;
+			width: 1.56rem;
+			height: 1.546667rem;
+			top: 13.56rem;
+			left: 3.226667rem;
+			animation:ani_portal_ic3 2s infinite alternate;
+		}
+	}
+	.page2{
+		    height: auto;
+		background: #86b73a;
+		    color: #fff;
+		    font-size: 0.266667rem;
+		    padding-bottom:2.133333rem;
+		    position: relative;
+		    background:#86b73a url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_leaf.png') no-repeat center/100% 100%;
+		    .bonus_bg_top{
+		    	position: absolute;
+		    	top: 0;
+		    	left: 0;
+		    	width: 100%;
+		    }
+		    .bonus_bg_top2{
+		    	position: absolute;
+		    	top: 0;
+		    	left: 1.2rem;
+		    	width: 1.8rem;
+		    	height: 2.026667rem;
+		    }
+		    .bonus_bg_bottom{
+		    	position: absolute;
+		    	bottom: 0;
+		    	left: 0;
+		    	width: 100%;
+		    }
+		.bonus_title{
+			width: 5.453333rem;
+			height: 1.133333rem;
+		    display: block;
+			margin:0 auto;
+			padding-top: 1.026667rem;
+		}
+		.bonus_intro{
+			text-align: center;
+			margin-top: 0.746667rem;
+			padding: 0 0.586667rem;
+			font-size: 0.293333rem;
+			line-height: 0.426667rem;
+		}
+		.bonus_total{
+			    position: relative;
+			margin-top: 0.64rem;
+			font-size: .293333rem;
+			.bonus_total_ic{
+				width: 0.906667rem;
+				height: 0.546667rem;
+				display: inline-block;
+				margin:0 0.693333rem 0 1.333333rem;
+				background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/ic_bonus_total.png') no-repeat center/0.906667rem 0.546667rem;
+			}
+			.money{
+				font-size: 0.533333rem;
+				color: #fff42d;
+				font-weight: 500;
+			}
+		}
+		.bonus_total_noLogin{
+			 padding-left: 2.186667rem;
+			.bonus_total_ic{
+			 position: absolute;
+			    left: 0;
+			    top: -0.28rem;
+			}   
+		}
+		.bonus_record_title{
+			width: 5.333333rem;
+			height: 0.613333rem;
+			line-height: 0.613333rem;
+			border: 1px solid #fff;
+			border-radius: 0.533333rem;
+			text-align: center;
+			margin:0.826667rem auto 0;
+			font-size: 0.4rem;
+		}
+		>.login_btn{
+			display: block;
+    margin: 1.413333rem auto;
+		}
+		.bonus_record{
+			margin-top:0.44rem;
+		}
+		.bonus_rule_des{
+			position: relative;
+			padding: 0.72rem 0.586667rem 0 0.586667rem;
+			.bonus_rule_bg{
+				position: absolute;
+				left: 0;
+				top:0;
+				width: 100%;
+			}
+			.rule_title_ic{
+				width: 1.48rem;
+				height: 0.96rem;
+				display: inline-block;
+				background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/rule_title.png') no-repeat center/1.48rem 0.96rem;
+			}
+			p{
+				line-height: 0.48rem;
+			}
+		}
+	}
+	.page3{
+		    min-height: 100%;
+		    height: auto;
+		    color: #fff;
+		    font-size: 0.266667rem;
+		    padding-bottom:2.133333rem;
+		    position: relative;
+		    background:#86b73a url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_leaf.png') repeat-y center/100% 100%;
+		    .bonus_bg_top{
+		    	position: absolute;
+		    	top: 0;
+		    	left: 0;
+		    	width: 100%;
+		    }
+		    .bonus_title{
+			width: 5.453333rem;
+			height: 1.133333rem;
+		    display: block;
+			margin:0 auto;
+			padding-top: 1.026667rem;
+		}
+		.bonus_intro{
+			text-align: center;
+			margin-top: 0.746667rem;
+			padding: 0 0.586667rem;
+			font-size: 0.293333rem;
+			line-height: 0.426667rem;
+		}
+		.bonus_total{
+			position: relative;
+			margin-top: 0.64rem;
+			font-size: 0.32rem;
+			.bonus_total_ic{
+				width: 0.906667rem;
+				height: 0.546667rem;
+				display: inline-block;
+				margin:0 0.24rem 0 1.333333rem;
+				background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/ic_bonus_total.png') no-repeat center/0.906667rem 0.546667rem;
+			}
+			.money{
+				font-size: 0.533333rem;
+				color: #fff42d;
+				font-weight: 500;
+			}
+		}
+		.bonus_total_noLogin{
+			 padding-left: 1.066667rem;
+			.bonus_total_ic{
+			 position: absolute;
+			    left: 0;
+			    top: -0.48rem;
+			}   
+		}
+		.person_ic{
+			position: absolute;
+			width: 1.306667rem;
+			height: 1.813333rem;
+			top: 4.08rem;
+			right: 0.906667rem;
+		}
+			.rank_content{
+				position: relative;
+				font-size: 0.32rem;
+				.line_bg{
+					width: 7.826667rem;
+					height: 0.08rem;
+					background: #fff;
+					margin:1.733333rem auto 0;
+				}
+				.rank_tabs{
+					position: absolute;
+					left : 50% ; transform: translateX(-50%);
+					top:-0.4rem;
+					width: 6.666667rem;
+					z-index: 99;
+					font-size: 0.32rem;
+					font-weight: bold;
+					.tab_item{
+						float: left;
+						width: 2.133333rem;
+  						box-shadow: 0px 0.066667rem 0.066667rem rgba(99,155,34,0.8);
+						background: #7caf2c;
+						height: 0.746667rem;
+						line-height: 0.746667rem;
+						border-radius: 0.133333rem;
+						text-align: center;
+						&:nth-child(2){
+							margin-left: 0.133333rem;
+						}
+						&:nth-child(3){
+							margin-left: 0.133333rem;
+						}
+					}
+					.selected{
+						background: #a7c37a;
+					}
+				}
+				.rank_bg{
+					width: 0.453333rem;
+					height: 0.946667rem;
+					position: absolute;
+					left : 50% ; transform: translateX(-50%);
+					top: 0.213333rem;
+				}
+				.award{
+					margin-top:1.2rem;
+					    text-align: center;
+					.imgaward{
+						width: 2.853333rem;
+						height: 2.68rem;
+					}
+					.activity_block2{
+						margin-top: 0.053333rem;
+					}
+				}
+				.loan_rank_title{
+					width: 5.333333rem;
+					height: 0.613333rem;
+					line-height: 0.613333rem;
+					border: 1px solid #fff;
+					border-radius: 0.533333rem;
+					text-align: center;
+					margin:0.826667rem auto 0;
+					font-size: 0.4rem;
+					// font-weight: bold;
+				}
+				.loan_rank_table{
+					margin-top:0.453333rem;
+				}
+				.loan_rank_more{
+					text-align: right;
+					margin-right: 0.906667rem;
+					margin-top: 0.266667rem;
+					.more_ic{
+						width: 0.253333rem;
+						height: 0.266667rem;
+						display: inline-block;
+						margin-right: 0.053333rem;
+						background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/ic_more.png') no-repeat center/0.253333rem 0.266667rem;
+					}
+				}
+			}
+		.bonus_rule_des{
+			position: relative;
+			padding: 0 0.586667rem;
+			margin-top: 0.4rem;
+			.rule_title_ic{
+				width: 1.48rem;
+				height: 0.96rem;
+				display: inline-block;
+				background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/rule_title.png') no-repeat center/1.48rem 0.96rem;
+			}
+			p{
+				line-height: 0.48rem;
+			}
+		}
+		    .bonus_bg_bottom{
+		    	position: absolute;
+		    	bottom: 0;
+		    	left: 0;
+		    	width: 100%;
+		    }
+		    .layer_main{
+			    .layer_main_content{
+			    	width: 8.666667rem;
+			    	background: #86b73a;
+			    	position: absolute;
+				    left: 50%;transform: translateX(-50%);
+				    top: 4.0rem;
+				    border-radius: 0.266667rem;
+				    z-index: 1000;
+				    .date_list{
+				    	width: 7.6rem;
+				    	margin:1.866667rem auto 0;
+				    	.date_list_item{
+				    		float: left;
+				    		color:#86b73a;
+				    		font-size: 0.32rem;
+				    		text-align: center;
+				    		margin-bottom:0.4rem;
+				    		    width: 25%;
+				    		.show_date{
+				    		    position: relative;
+					    		background: #fff;
+					    		color:#86b73a;
+					    		font-size: 0.32rem;
+					    		width: 85%;
+					    		    margin: 0 auto;
+					    		padding:0.186667rem 0;
+					    		border-radius: 0.133333rem;
+					    		.selected{
+					    			    position: absolute;
+					    			        bottom: 0.106667rem;
+									width: 0.293333rem;
+									height: 0.293333rem;
+									display: inline-block;
+									background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/layer_rank_selected.png') no-repeat center/0.293333rem 0.293333rem;
+					    		}
+				    		}
+				    		.date{
+				    			color:#fff;
+				    			display: block;
+				    			margin-top:0.213333rem;
+				    		}
+				    	}
+				    	.disable{
+							.show_date{
+								background: #b6d489; 
+							} 
+							.date{   
+								color: #b6d489; 
+							}
+				    	}
+				    	// .week{
+				    	// 	width: 50%;
+				    	// }
+				    }
+			    	.layer_rank_btn{
+			    		width: 3.666667rem;
+			    		height: 0.88rem;
+			    		line-height: 0.88rem;
+			    		background: #fec519;
+			    		margin: 1.48rem auto 0.693333rem;
+			    		text-align: center;
+			    		border-radius: 0.133333rem;
+  						box-shadow: 0px 0.066667rem 0.066667rem rgba(99,155,34,0.8);
+  						font-size: 0.373333rem;
+			    	}
+			    }
+		    	.layer_rank_bg{
+					width: 100%;
+    				position: absolute;
+    				top: 2.56rem;
+    				left: 0;
+				    z-index: 999;
+		    	}
+		    	.layer_rank_title{
+    				position: absolute;
+    				top: 3.36rem;
+    				left: 50%;transform: translateX(-50%);
+    				width: 8.386667rem;
+    				height: 1.586667rem;
+				    z-index: 1000;
+		    	}
+		    }
+	}
+	.page4{
+		    min-height: 100%;
+		    height: auto;
+		    color: #fff;
+		    font-size: 0.266667rem;
+		    // padding-bottom:2.133333rem;
+		    position: relative;
+		    background:#86b73a url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_leaf.png') no-repeat center/100% 100%;
+		    .bonus_bg_top{
+		    	position: absolute;
+		    	top: 0;
+		    	left: 0;
+		    	width: 100%;
+		    }
+		    .bonus_title{
+			width: 100%;
+			height: 1.506667rem;
+		    display: block;
+			margin:0 auto;
+			padding-top: 1.026667rem;
+		}
+		.bonus_intro{
+			margin-top: 0.453333rem;
+			padding: 0 0.586667rem;
+			font-size: 0.293333rem;
+			line-height: 0.426667rem;
+		}
+		.bonus_total{
+			position: relative;
+			margin-top: 2.8rem;
+			    text-align: center;
+			    font-size: 0.32rem;
+			.bonus_total_ic{
+				position: absolute;
+				width: 0.906667rem;
+				height: 0.546667rem;
+				display: inline-block;
+				    top: -0.533333rem;
+    left: 2.373333rem;
+				background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/ic_bonus_total.png') no-repeat center/0.906667rem 0.546667rem;
+			}
+			.money{
+				font-size: 1.066667rem;
+				color: #fff42d;
+				font-weight: 500;
+			}
+			p{
+				margin-top:0.24rem;
+			}
+			.login_btn{
+				margin-top: 0.32rem;
+			}
+		}
+		.bonus_total_noLogin{
+			.bonus_total_ic{
+				  top: 0.106667rem;
+			}
+		}
+		.bonus_rule_des{
+			    position: absolute;
+    bottom: 2.6rem;
+    left: .586667rem;
+			// position: relative;
+			// padding: 0 0.586667rem;
+			// margin-top: 2.933333rem;
+			.rule_title_ic{
+				width: 1.48rem;
+				height: 0.96rem;
+				display: inline-block;
+				background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/rule_title.png') no-repeat center/1.48rem 0.96rem;
+			}
+			p{
+				line-height: 0.48rem;
+			}
+		}
+		    .bonus_bg_bottom{
+		    	position: absolute;
+		    	bottom: 0;
+		    	left: 0;
+		    	width: 100%;
+		    }
+	}
+}
+@keyframes ani_portal_ic1
+{
+	0%   {    left: 1.546667rem;}
+	100% {        left: 2rem;}
+}
+@keyframes ani_portal_ic2
+{
+	0%   {   left: 7.6rem;}
+	100% {        left: 7.2rem;}
+}
+@keyframes ani_portal_ic3
+{
+	0%   {    left: 3.226667rem;}
+	100% {        left: 2.8rem;}
+}
+
+
+
+

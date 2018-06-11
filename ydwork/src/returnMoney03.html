@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+	<title>春风得意，返现给你</title>
+    <link rel="stylesheet" href="../css/money.min.css">
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+</head>
+<body>
+	<div id="app" class="returnMoney" v-cloak>
+		<!-- <div class="bg"></div>	 -->
+		<div class="rule" @click="rule"><img src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/rule_ic.png" alt=""></div>
+		<img class="leaf_bg1" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/leaf_bg1.png" alt="">
+		<!-- <img class="leaf_bg2" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/leaf_bg2.png" alt=""> -->
+		<img class="title01" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/title_01.png" alt="">
+		<img class="title02" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/title_02.png" alt="">
+		<div class="content">
+			<div class="inputItem"><input type="tel" placeholder="输入1~8000的任意数，不含小数" v-model="bonusMoney" @keyup="bonusMoneyBlur"></div>
+			<p class="inputItem_des">出借金额满足：<span v-text="lendMoney">0</span>元，一次性激活使用</p>
+			<div class="getBtn" @click="obtainBonus"><i class="btn"></i><span v-if="left_bonus_num>0" v-text="'('+left_bonus_num+')'"></span></div>
+		</div>
+		<div class="footer_bg"></div>
+		<img class="leaf1" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/leaf01.png" alt="">
+		<img class="leaf2" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/leaf02.png" alt="">
+		<img class="little_leaf_top" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/little_leaf_top.png" alt="">
+		<img class="little_leaf_left" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/little_leaf_left.png" alt="">
+		<img class="little_leaf_right" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/little_leaf_right.png" alt="">
+		
+		<div class="layer" v-if="isLayer" @click="hideRuleWin"></div>
+		
+		<div class="rule_layer" v-if="isRuleWin">
+			<div class="ruleWin">
+				<img src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/rule_des.png" alt="">
+			</div>
+			<div class="ruleWinBg"></div>
+		</div>
+		
+		<div class="tip_layer" v-if="isTipWin">
+			<div class="tipWin"></div>
+			<div class="tipWinCon" v-if="type == 1">
+				<img src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/tip_success.png" alt="">
+				<div class="btnSure" @click="hideTipWin"><i class="sure"></i></div>
+			</div>
+			<div class="tipWinCon" v-if="type == 2">
+				<img style="width:6.666667rem;" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/tip_over.png" alt="">
+				<div class="btnSure" @click="hideTipWin"><i class="sure"></i></div>
+			</div>
+			<div class="tipWinCon" v-if="type == 3">
+				<img style="width:4.346667rem;" src="https://caiyunupload.b0.upaiyun.com/newweb/wx/events/money/tip_login.png" alt="">
+				<div class="loginBtns">
+					<div class="btnCancel" @click="hideTipWin"><i class="cancel"></i></div>
+					<div class="btnLogin" @click="login"><i class="login"></i></div>
+				</div>
+			</div>
+			<div class="tipWinBg"></div>
+		</div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+		$(function(){
+		// 解决在android手机上背景被输入宽顶上去的问题
+		$('body').css({'height':$(window).height()});
+		});
+		var vm = new Vue({
+		  el: '#app',
+		  data: {
+		  	 // isLayer:false,
+		  	 // isRuleWin:false,
+		  	 // isTipWin:false,
+		  	 // isLayerClick:false,//遮照是否可点击
+		  	 // type:'',//弹窗类型
+
+		  	 bonusMoney:'',//领取金额
+			 lendMoney:0,//出借金额
+			 done_bonus_num:'',//全部次数
+			 left_bonus_num:0,//剩余次数
+		  	 isLayer:false,
+		  	 isRuleWin:false,
+		  	 isTipWin:false,
+		  	 isLayerClick:false,//遮照是否可点击
+		  	 type:'',//弹窗类型
+		  },
+		  mounted: function () {
+		  },
+		  methods:{
+	        obtainBonus:function(){
+	        	var type = 3;//类型 1成功 2领取完。3未登录
+	        	this.isLayerClick = false;
+		  	 	this.isLayer = true;
+	        	this.isTipWin = true;
+	        	if(type == 1){
+		        	this.type = 1;
+	        	}
+	        	if(type == 2){
+		        	this.type = 2;
+	        	}
+	        	if(type == 3){
+		        	this.type = 3;
+	        	}
+	        },
+			bonusMoneyBlur:function(){
+				// if(this.bonusMoney.length>4){
+				// 	this.bonusMoney = this.bonusMoney.split(0,4);
+				// 	return;
+				// }
+				this.bonusMoney = this.bonusMoney.replace(/[^\d]/g,'');//只能输入数字
+				this.lendMoney = this.bonusMoney/0.008;
+			},
+	        rule:function(){
+	        	this.isLayerClick = true;
+	        	this.isLayer = true;
+	        	this.isRuleWin = true;
+	        },
+	        hideRuleWin:function(){
+	        	if(this.isLayerClick){
+	        		this.isRuleWin = false;
+	        		this.isLayer = false;
+	        	}
+	        },
+	        hideTipWin:function(){
+	        	this.isTipWin = false;
+	        	this.isLayer = false;
+	        },
+	        login:function(){
+	        	this.isTipWin = false;
+	        	this.isLayer = false;
+	        }
+		  }
+		})
+	</script>
+</body>
+</html>

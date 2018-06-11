@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+	<title>3月返现活动APP页</title>
+    <link rel="stylesheet" href="./css/money_app.min.css">
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+</head>
+<style>
+</style>
+<body>
+	<div id="app" class="main">
+		<!-- <router-link to="/page1">Go to page1333fdsfsd</router-link>
+    	<router-link to="/page2">Go to page2</router-link> -->
+        <router-view></router-view>
+	</div>
+	<template id="page1">
+		<div class="page1">
+			<img class="portal_ic1" @click="goUrl('page2')" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/portal_ic01.png" alt="">
+			<img class="portal_ic2" @click="goUrl('page3')" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/portal_ic02.png" alt="">
+			<img class="portal_ic3" @click="goUrl('page4')" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/portal_ic03.png" alt="">
+		</div>
+	</template>
+	<template id="page2">
+		<div class="page2">
+			<img class="bonus_bg_top" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_top.png" alt="">
+			<img class="bonus_bg_top2" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_top2.png" alt="">
+			<img class="bonus_title" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_title.png" alt="">
+			<p class="bonus_intro">活动期间，用户出借直投项目（新手标除外）单笔出借金额达到指定 金额，即可按照比例获得返现。</p>
+			<div class="bonus_total" :class="isLogin?'':'bonus_total_noLogin'">
+				<i class="bonus_total_ic"></i>
+				返现总金额：<span v-if="isLogin"><span class="money" v-text="">XX.XX</span>元</span>
+				<span class="login_btn" v-if="!isLogin" @click="toLogin">请登录</span>
+			</div>	
+			<table class="table bonus_rule_table">
+					<tr class="thead">
+						<td width="50%">单笔出借金额（元）</td>
+						<td width="50%">返现比例</td>
+					</tr>
+					<tr>
+						<td><i class="bonus_rule_ic"></i>达到1万元</td>
+						<td>0.3%</td>
+					</tr>
+					<tr>
+						<td><i class="bonus_rule_ic"></i>达到5万元</td>
+						<td>0.4%</td>
+					</tr>
+					<tr>
+						<td><i class="bonus_rule_ic"></i>达到10万元</td>
+						<td>0.5%</td>
+					</tr>
+			</table>
+			<div class="bonus_record_title">我的返现</div>
+			<div class="login_btn" v-if="!isLogin" @click="toLogin">请登录</div>
+			<table class="table bonus_record_table" v-if="isLogin">
+					<tr class="thead">
+						<td>出借时间</td>
+						<td>出借金额（元）</td>
+						<td>返现金额（元）</td>
+					</tr>
+					<tr>
+						<td>2018-2-22 11:00</td>
+						<td><i class="bonus_rule_ic"></i>10000</td>
+						<td>30</td>
+					</tr>
+					<tr>
+						<td>2018-2-22 11:00</td>
+						<td><i class="bonus_rule_ic"></i>10000</td>
+						<td>30</td>
+					</tr>
+					<tr>
+						<td>2018-2-22 11:00</td>
+						<td><i class="bonus_rule_ic"></i>10000</td>
+						<td>30</td>
+					</tr>
+			</table>
+			<div class="bonus_rule_des">
+				<img class="bonus_rule_bg" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/bonus_rule_bg.png" alt="">
+				<i class="rule_title_ic"></i>
+				<p>1、自动投标、手动投标均可参与本活动；<br/>
+2、返现金额=出借金额*返现比例；<br/>
+3、返现奖金预计将于出借成功后24小时内内发放至账户；<br/>
+4、本次活动最终解释权归银豆网所有。
+				</p>
+			</div>
+			<img class="bonus_bg_bottom" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_bottom.png" alt="">
+		</div>
+	</template>
+	<template id="page3">
+		<div class="page3">
+			<img class="bonus_bg_top" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_top.png" alt="">
+			<img class="bonus_title" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page3_title.png" alt="">
+			<p class="bonus_intro">活动期间，用户在规定周期内累计出借金额登上该周期的奖励名次， 即可获得相应奖品。</p>	
+			<div class="bonus_total bonus_total_noLogin">
+				<i class="bonus_total_ic"></i>
+				您的累计出借金额：<span v-if="isLogin"><span class="money" v-text="">9,000,000.00</span>元</span>
+				<span class="login_btn" v-if="!isLogin" @click="toLogin">请登录</span>
+			</div>	
+			<div class="rank_content">
+				<div class="line_bg"></div>
+				<ul class="rank_tabs">
+					<li class="tab_item" :class="type==1?'selected':''" @click="rank(1)">日排行</li>
+					<li class="tab_item" :class="type==2?'selected':''" @click="rank(2)">七日排行</li>
+					<li class="tab_item" :class="type==3?'selected':''" @click="rank(3)">活动期间排行</li>
+				</ul>
+				<img class="rank_bg" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/rank_bg.png" alt="">
+				<!-- 日排行奖品 -->
+				<div class="award award_day" v-if="type==1">
+					<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_day_01.png" alt="">
+					<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_day_02.png" alt="">
+					<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_day_03.png" alt="">
+				</div>
+				<!-- 七日排行奖品 -->
+				<div class="award award_week" v-if="type==2">
+					<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_week_01.png" alt="">
+					<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_week_02.png" alt="">
+					<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_week_03.png" alt="">
+				</div>
+				<!-- 活动期排行奖品 -->
+				<div class="award award_activity" v-if="type==3">
+					<div class="activity_block1">
+						<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_activity_01.png" alt="">
+						<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_activity_02.png" alt="">
+					</div>
+					<div class="activity_block2">
+						<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_activity_03.png" alt="">
+						<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_activity_04.png" alt="">
+						<img class="imgaward" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/award_activity_05.png" alt="">
+					</div>
+				</div>
+				<div class="loan_rank_title" v-text="rankTitle">日出借排行榜</div>
+				<table class="table loan_rank_table">
+						<tr class="thead">
+							<td>名次</td>
+							<td>用户名</td>
+							<td>出借金额</td>
+						</tr>
+						<tr>
+							<td>第1名</td>
+							<td>吃鸡1</td>
+							<td><i class="bonus_rule_ic"></i>10,000.00</td>
+						</tr>
+						<tr>
+							<td>第2名</td>
+							<td>吃鸡2</td>
+							<td><i class="bonus_rule_ic"></i>10,000.00</td>
+						</tr>
+						<tr>
+							<td>第3名</td>
+							<td>吃鸡3</td>
+							<td><i class="bonus_rule_ic"></i>10,000.00</td>
+						</tr>
+						<!-- <tr>
+							<td colspan="3">暂无记录</td>
+						</tr> -->
+				</table>
+				<div class="loan_rank_more" @click="historyRank" v-if="type!=3"><i class="more_ic"></i>过往榜单查看</div>
+				<div class="loan_rank_more" @click="allData" v-if="type==3"><i class="more_ic"></i>查看全部名单</div>
+			</div>	
+			<img class="person_ic" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/ic_person.png" alt="">
+			<div class="bonus_rule_des">
+				<i class="rule_title_ic"></i>
+				<p>
+					1、自动投标、手动投标均可参与本活动；<br/>
+	2、新手标、债权转让项目不计入累计出借金额；<br/>
+	3、若用户发起债权转让，计算累计出借金额时将扣除债转的金额；<br/>
+	4、实物奖品将于活动后10个工作日内发货，请豆粉及时更新默认收货地<br/>
+	址，发奖时间节假日顺延；<br/>
+	5、本次活动最终解释权归银豆网所有。
+				</p>
+			</div>
+			<img class="bonus_bg_bottom" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_bottom.png" alt="">
+			<!-- <div class="layer" v-if="isLayer" @click="hideRuleWin"></div> -->
+			<div class="layer layer_main" v-if="isLayer">
+				<div class="layer_main_content">
+					<ul class="date_list clearfix">
+						<!-- <li class="date_list_item" @click="dateSelect(item)">3月9日~3月15日<i class="selected"></i></li> -->
+						<!-- <li class="date_list_item" @click="dateSelect(item)" v-for="item in dates">{{item.show}}<i :class="activeItem==item?'selected':''"></i> -->
+						<li class="date_list_item" :class="item.flag==1?'disable':''" :style="{'width':type==2?'50%':'25%'}" @click="dateSelect(item)" v-for="item in dates">
+							<div class="show_date"><span v-text="item.show"></span><i :class="activeItem==item?'selected':''"></i></div>
+							<span class="date" v-text="item.date" v-if="type==1"></span>
+						</li>
+					</ul>
+					<div class="layer_rank_btn" @click="submit">确定</div>	
+				</div>
+				<img class="layer_rank_bg" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/layer_rank_bg.png" alt="">
+				<img class="layer_rank_title" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/layer_rank_title.png" alt="">
+			</div>
+		</div>
+	</template>
+	<template id="page4">
+		<div class="page4">
+			<img class="bonus_bg_top" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_top.png" alt="">
+			<img class="bonus_title" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page4_title.png" alt="">
+			<p class="bonus_intro">活动期间，每个项目（转让项目除外）最后一个出借成功的豆粉，
+可额外获得388积分奖励！（日常封标奖励388积分，活动期间
+奖励积分388*2=776积分，活动结束后恢复388积分）</p>
+			<div class="bonus_total" :class="isLogin?'':'bonus_total_noLogin'">
+				<i class="bonus_total_ic"></i>
+				<div class="money" v-if="isLogin">2000</div>
+				<p>活动期间因封标获得的总积分</p>
+				<span class="login_btn" v-if="!isLogin" @click="toLogin">请登录</span>
+			</div>	
+			<div class="bonus_rule_des">
+				<i class="rule_title_ic"></i>
+				<p>
+	1、封标奖励积分仅限每个直投项目最后一个成功出借的用户；<br/>
+2、新手标、债权转让项目不参与此活动；<br/>
+3、封标奖励积分将在出借成功后3个小时左右发放到账户中；<br/>
+4、本活动最终解释权归银豆网所有。
+				</p>
+			</div>
+			<img class="bonus_bg_bottom" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/03/money/page2_bg_bottom.png" alt="">
+		</div>
+	</template>
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+	<script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
+	<script>
+	var page1 = Vue.extend({
+	  template: '#page1',
+	  data: function () {
+	    return {
+	      firstName: 'Walter',
+	      lastName: 'White',
+	      alias: 'Heisenberg'
+	    }
+	  },
+	  methods:{
+		  login:function(){
+		  	alert(1)
+		  },
+		  goUrl:function(url){
+		  	router.push({ name: url, params: { userId: 123 }})
+		  }
+	  }
+	})
+
+	var page2 = Vue.extend({
+	  template: '#page2',
+	  data: function () {
+	    return {
+	    	isLogin:false,
+	    }
+	  },
+	  methods:{
+		  toLogin:function(){
+		  	alert(1)
+		  }
+	  }
+	})
+	var page3 = Vue.extend({
+	  template: '#page3',
+	  data: function () {
+	    return {
+	    	dates:[],//日期
+	    	type:3,//type 1一天  2七天。3活动期
+	    	rankTitle:"活动期间出借排行榜",
+		  	isLayer:false,
+		  	isLogin:true,//是否登录
+		  	activeItem:''//当前选中日期
+	    }
+	  },
+	  methods:{
+	  		dataList:function(p_sign,p_type,p_date){
+				//更新条件参数
+				// this.params.sign = p_sign;
+				// this.params.type = p_type;
+				// this.params.date = p_date;
+				// url https://www.yindou.com   http://wujwww.yind123.com
+		    	var _this = this;
+				$.ajax({
+					type:'POST',
+					url:'http://wujwww.yind123.com/webapi/get_loan_rank',
+					data:{
+						sign:p_sign,//1:日类型  2：周类型  3活动排行期间，默认是1
+						type:p_type,//周排行的时候传1：第一周，2：第二周，默认是1
+						date:p_date,//日期 默认是当天
+					},
+					timeout: 10000,
+					success:function(res){
+						console.log("返回参数："+JSON.stringify(res))
+						// if(res.code==0){
+						// 	if(p_sign==3){//活动期间
+						// 		_this.allData = res.data;//保存完整数据
+						// 		_this.list =  _this.rankFilter(res.data);
+						// 		return;
+						// 	}
+						// 	_this.list = res.data;
+						// }else{
+						// 	alert("获取数据失败");
+						// }
+					},
+					error:function(e){
+						alert("服务器错误");
+					}
+				})
+			},
+		  	submit:function(){
+		  		this.scrollBody();
+		  		this.isLayer = false;
+		  	},
+			  hideRuleWin:function(e){
+			  	this.isLayer = false;
+			  },
+		  	dateSelect:function(item){
+		  		if(item.flag){return;}//不可点击
+		  		this.activeItem = item;
+		  		if(this.type==1){
+		  			// alert(item.date)
+		  		}
+		  		if(this.type==2){
+		  			// alert(item.starttime)
+		  		}
+		  	},
+		  	allData:function(){
+		  		alert(1)
+		  	},
+		  toLogin:function(){
+		  	alert(1)
+		  },
+		  goUrl:function(url){
+		  	router.push({ name: url, params: { userId: 123 }})
+		  },
+		  rank:function(type){//type 1一天  2七天。3活动期
+		  	  this.type = type;
+		  	  if(this.type==1){
+		  	  	this.rankTitle = "日出借排行榜";
+		  	  }else if(this.type==2){
+		  	  	this.rankTitle = "七日出借排行榜";
+		  	  }else if(this.type==3){
+		  	  	this.rankTitle = "活动期间出借排行榜";
+		  	  }
+		  },
+		  historyRank:function(){
+		  	this.noScrollBody();
+		  	this.isLayer = true;
+			var weekDates = [{show:'3月9日~3月15日',starttime:'2018-03-09',endtime:'2018-03-15',weekType:'1'},{show:'3月16日~3月22日',starttime:'2018-03-16',endtime:'2018-03-22',weekType:'2'}];
+			var dayDates = [
+				{show:'第1天',date:'3月9日',formatDate:'2018-03-09'},
+				{show:'第2天',date:'3月10日',formatDate:'2018-03-10'},
+				{show:'第3天',date:'3月11日',formatDate:'2018-03-11'},
+				{show:'第4天',date:'3月12日',formatDate:'2018-03-12'},
+				{show:'第5天',date:'3月13日',formatDate:'2018-03-13'},
+				{show:'第6天',date:'3月14日',formatDate:'2018-03-14'},
+				{show:'第7天',date:'3月15日',formatDate:'2018-03-15'},
+				{show:'第8天',date:'3月16日',formatDate:'2018-03-16'},
+				{show:'第9天',date:'3月17日',formatDate:'2018-03-17'},
+				{show:'第10天',date:'3月18日',formatDate:'2018-03-18'},
+				{show:'第11天',date:'3月19日',formatDate:'2018-03-19'},
+				{show:'第12天',date:'3月20日',formatDate:'2018-03-20'},
+				{show:'第13天',date:'3月21日',formatDate:'2018-03-21'},
+				{show:'第14天',date:'3月22日',formatDate:'2018-03-22'}
+		  ];
+		   var curDate = this.getCurDate();
+			var _this = this;
+		  	if(this.type==1){
+				  var _dayDates = [];
+				  dayDates.forEach(function(item,index){
+				  	  if(_this.dateCompare(curDate,item.formatDate)){//大于今天日期
+				  	  		item.flag = 1;//不可点击
+				  	  }
+				  	  _dayDates.push(item);
+				  });
+		  		this.dates = _dayDates;
+		  	}else if(this.type==2){
+		  		var _weekDates = [];
+				  weekDates.forEach(function(item,index){
+				  	  if(_this.dateCompare(curDate,item.starttime)){
+				  	  		item.flag = 1;//不可点击
+				  	  }
+				  	  _weekDates.push(item);
+				  });
+		  		this.dates = _weekDates;
+		  	}
+		  },
+		  dateCompare:function(today,date){//日期比较  选择日期和今天比较
+		  	  var d1 = new Date(today);
+		  	  var d2 = new Date(date);
+		  	  return Date.parse(d1)<Date.parse(d2);
+		  },
+		getCurDate:function(){//获取当前日期 2018-03-07
+			var curDate = new Date();
+			var y = curDate.getFullYear();
+			var m = (curDate.getMonth()+1)<10?'0'+(curDate.getMonth()+1):curDate.getMonth()+1;
+			var d = curDate.getDate()<10?'0'+curDate.getDate():curDate.getDate();
+			return y+"-"+m+"-"+d;
+		},
+		  noScrollBody:function(){
+		  	$("body").css({overflow:'hidden'});
+		  },
+		  scrollBody:function(){
+		  	$("body").css({overflow:'scroll'});
+		  }
+	  },
+	  created: function () {
+			console.log("created--"+this.getCurDate());
+			// this.params.date = this.getCurDate();
+			// this.dataList('1','',this.getCurDate());
+			this.dataList('2','','');
+		}
+	})
+	var page4 = Vue.extend({
+	  template: '#page4',
+	  data: function () {
+	    return {
+	    isLogin:true,//是否登录
+	    }
+	  },
+	  methods:{
+		  toLogin:function(){
+		  	alert(1)
+		  },
+		  goUrl:function(url){
+		  	router.push({ name: url, params: { userId: 123 }})
+		  }
+	  }
+	})
+
+	var router = new VueRouter({
+		routes: [
+			{name: 'page1', path: '/', component: page1},
+			// {name: 'page1', path: '/page1', component: page1},
+			{name: 'page2', path: '/page2', component: page2},
+			{name: 'page3', path: '/page3', component: page3},
+			{name: 'page4', path: '/page4', component: page4},
+		]
+	})
+
+	var app = new Vue({
+	  router: router,
+	  data: {
+	  },
+	  mounted:function(){
+	  },
+	  watch:{
+	  	count:function(val){
+
+	  	}
+	  }
+	}).$mount('#app');
+	</script>
+</body>
+</html>

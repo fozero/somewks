@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+	<title>邀请好友专题页</title>
+    <link rel="stylesheet" href="./css/invite_special.min.css">
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<style>
+		html{background: #876fbf;}
+	</style>
+</head>
+<body>
+	<div id="app" class="inviteSpecial">
+		<div class="inviteSpecial__rule">
+			<img class="inviteSpecial__rule__banner" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/invitation/201804/h5/invite_special_banner.png" alt="">
+			<div class="inviteSpecial__rule--explain">
+				<img class="inviteSpecial__rule__img" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/invitation/201804/h5/invite_special_rule.png" alt="">
+				<div class="inviteSpecial__rule--explain__lender">
+					<i class="lender_ico"></i>
+					<span class="inviteSpecial__rule--explain__lender--count">被邀出借好友人数：<span v-if="isLogin">0</span><span class="inviteSpecial__rule--explain__lender--login" v-if="!isLogin" @click="toLogin">去登录</span></span>
+				</div>
+				<img class="inviteSpecial__rule--explain__img" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/invitation/201804/h5/invite_special_foot.png" alt="" >
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+	<script>
+		// var LOGIN_STATUS='<{$is_login}>'?true:false;
+		var LOGIN_STATUS = true;
+		function openLogin(){
+			var optStr = JSON.stringify({"page":"login","data":{}});
+		    if(appJsContext)  appJsContext.showView(optStr);
+		}
+
+		var vm = new Vue({
+		  el: '#app',
+		  data: {
+		  	isLogin:LOGIN_STATUS,
+		  },
+		  methods:{
+	        toLogin:function(){
+	        	openLogin();
+	        }
+		  }
+		})
+	</script>
+</body>
+</html>

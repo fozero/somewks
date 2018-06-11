@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+	<title>现金开启热动力</title>
+    <link rel="stylesheet" href="./css/money5.min.css">
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<style>
+		@font-face{
+			font-family: 'lizhifont';
+			src:url('./fonts/HYHeiLiZhiTiJ.ttf?v=2018050801') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" class="money5">
+		<img class="money5__rule" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_btn_rule.png" @click="rule" alt="">
+		<img class="money5__title" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_title.png" alt="">
+		<div class="money5__inputs">
+			<div class="money5__inputs__item">
+				<input type="tel" placeholder="输入1-8000任意整数" v-model="money" maxlength="4">
+				<label class="money5__inputs__item--txt">按出借金额0.8%比例激活</label>
+			</div>
+			<div class="money5__inputs__item">
+				<input type="tel" placeholder="请输入您在银豆网注册的手机号" v-model="phone" maxlength="11">
+				<label class="money5__inputs__item--txt">还不是银豆网会员？<span @click="reg">去注册</span></label>
+			</div>
+			<img class="money5__inputs__get" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_btn_get.png" @click="doGet" alt="">
+		</div>
+		<!-- 消息提示组件 -->
+		<dialog-tip message="hello" :dialog-show="dialogShow.tip1">
+			<p slot="msg">请输入1-8000之间任意整数</p>
+			<button class="btn" @click="closeDialogTip('tip1')">确定</button>
+		</dialog-tip>
+		<dialog-tip message="hello" :dialog-show="dialogShow.tip2">
+			<p slot="msg">请输入您在银豆网的注册手机号</p>
+			<button class="btn" @click="closeDialogTip('tip2')">确定</button>
+		</dialog-tip>
+		<dialog-tip message="hello" :dialog-show="dialogShow.tip3">
+			<p slot="msg">请输入正确手机号</p>
+			<button class="btn" @click="closeDialogTip('tip3')">确定</button>
+		</dialog-tip>
+		<dialog-tip message="hello" :dialog-show="dialogShow.tip4">
+			<p slot="msg">抱歉，没有此用户，请核实后输入</p>
+			<button class="btn" @click="closeDialogTip('tip4')">重新输入</button>
+			<button class="btn" @click="reg">去注册</button>
+		</dialog-tip>
+		<!-- 规则弹窗组件 -->
+		<dialog-rule message="hello" :dialog-show="dialogShow.tip5">
+			<div class="dialog_rule--content__title">
+				<p>恭喜您领取成功</p>
+			</div>
+			<div class="dialog_rule--content__txt">
+				<p>领取记录可在平台官网账户中心查看</p>
+				<p>长按下方二维码，进行二维码识别</p>
+				<p>还有更多奖励哦～</p>
+				<i class="dialog_rule--content__txt--ico"></i>
+				<img class="dialog_rule--content__txt--qrcode" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_qrcode.png" alt="">
+			</div>
+			<div class="dialog_rule--content__btns">
+				<button class="btn" @click="closeDialogTip('tip5')">关闭</button>
+			</div>
+		</dialog-rule>
+		<dialog-rule message="hello" :dialog-show="dialogShow.tip6">
+			<div class="dialog_rule--content__title">
+				<p>今日领取次数已达上限</p>
+			</div>
+			<div class="dialog_rule--content__txt">
+				<p>领取记录可在平台官网账户中心查看</p>
+				<p>长按下方二维码，进行二维码识别</p>
+				<p>还有更多奖励哦～</p>
+				<i class="dialog_rule--content__txt--ico"></i>
+				<img class="dialog_rule--content__txt--qrcode" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_qrcode.png" alt="">
+			</div>
+			<div class="dialog_rule--content__btns">
+				<button class="btn" @click="closeDialogTip('tip6')">关闭</button>
+			</div>
+		</dialog-rule>
+		<dialog-rule message="hello" :dialog-show="dialogShow.tip7" @close-dialog="closeDialogTip('tip7')">
+			<p class="dialog_rule--content_intro">
+				1. 活动时间：2018年5月10日 - 2018年5月23日；<br/>
+				2. 输入1—8000之间任意整数，即可领取对应金额的现金卡；<br/>
+				3. 现金卡按出借金额0.8%比例激活，≧30天预约标、手动投标（新手标及债权转让项目除外）均可参与本活动，有效期7天；<br/>
+				4. 活动期间每人每天1次领取机会；<br/>
+				5. 领取后，现金卡奖励会直接发放至账户，请注意查看使用；<br/>
+				6. 本次活动最终解释权归银豆网所有。</p>
+		</dialog-rule>
+	</div>
+	<template id="dialog-tip">
+		<div class="dialog_tip" v-if="dialogShow">
+			<div class="dialog_tip--mask"></div>
+			<div class="dialog_tip--content">
+				<div class="dialog_tip--content__txt">
+					<slot name="msg">请输入1-8000之间任意整数</slot>
+				</div>
+				<div class="dialog_tip--content__btns">
+					<slot>
+						<button class="btn">确定</button>
+						<button class="btn">重新输入</button>
+						<button class="btn">去注册</button>
+					</slot>
+				</div>
+			</div>
+		</div>
+	</template>
+	<template id="dialog-rule">
+		<div class="dialog_rule" v-if="dialogShow">
+			<div class="dialog_rule--mask" @click="closeDialog"></div>
+			<div class="dialog_rule--content">
+				<slot>
+					<div class="dialog_rule--content__title">
+						<p>恭喜您领取成功</p>
+					</div>
+					<div class="dialog_rule--content__txt">
+						<p>领取记录可在平台官网账户中心查看</p>
+						<p>长按下方二维码，进行二维码识别</p>
+						<p>还有更多奖励哦～</p>
+						<i class="dialog_rule--content__txt--ico"></i>
+						<img class="dialog_rule--content__txt--qrcode" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/05/money/money5_qrcode.png" alt="">
+					</div>
+					<div class="dialog_rule--content__btns">
+						<button class="btn">关闭</button>
+					</div>
+				</slot>
+			</div>
+		</div>
+	</template>
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+		$(function(){$('body').css({'height':$(window).height()});});
+		// 注册全局组件
+		Vue.component('dialog-tip', {
+		    template: '#dialog-tip',
+		    props:['dialogShow','message'],
+		    data:function(){
+                return {
+                	content:''
+                }
+            },
+            methods:{
+            }
+        });
+        Vue.component('dialog-rule', {
+		    template: '#dialog-rule',
+		    props:['dialogShow','message'],
+		    data:function(){
+                return {
+                	content:''
+                }
+            },
+            methods:{
+            	closeDialog:function(){
+            		this.$emit('close-dialog');
+            	}
+            }
+        });
+		var vm = new Vue({
+		  el: '#app',
+		  data: {
+		  	money:'',
+		  	phone:'',
+		  	dialogShow:{
+		  		tip1:false,
+		  		tip2:false,
+		  		tip3:false,
+		  		tip4:false,
+		  		tip5:false,
+		  		tip6:false,
+		  		tip7:false,
+		  	}
+		  },
+		  methods:{
+	        doGet:function(){
+	        	var _money = this.money;
+	            var _phone = this.phone;
+	            if(!_money || _money>8000 || _money<1){
+	                this.dialogShow.tip1 = true;
+	                return;
+	            }
+	            if(!_phone){
+	                this.dialogShow.tip2 = true;
+	                return;
+	            }
+	            var _this = this;
+	            $.ajax({
+	                type:'POST',
+	                url:'/webapi/wx_subscribe_api',
+	                data:{
+	                    lender_money:this.money,
+	                    lender_mobile:this.phone
+	                },
+	                timeout: 5000,
+	                success:function(res){
+	                    if(res.code==0){//领取成功
+	                        _this.dialogShow.tip5 = true;
+	                    }else if(res.code==110010){//一天只能领取一次奖励哦
+	                        _this.dialogShow.tip6 = true;
+	                    }else if(res.code==110012){//抱歉，没有此用户，请核实后输入
+	                        _this.dialogShow.tip4 = true;
+	                    }else if(res.code==900001){//请输入正确的手机号
+	                        _this.dialogShow.tip3 = true;
+	                    }else{
+	                        alert(res.message);
+	                    }
+	                },
+	                error:function(e){
+	                    alert("服务器错误");
+	                }
+	            })
+	        },
+	        closeDialogTip:function(type){
+	        	this.dialogShow[type] = !this.dialogShow[type];
+	        },
+	        reg:function(){
+	        	location.href="https://www.yindou.com/cnl/?ydcod=wx_regist";
+	        },
+	        rule:function(){
+	        	this.dialogShow.tip7 = true;
+	        }
+		  }
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+		<title>APP年报2017</title>
+		<link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/fullPage.js/2.9.5/jquery.fullpage.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<style>
+		/*.section{background: red;}*/
+
+    .bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1
+    }
+	</style>
+</head>
+<body>
+	<div id="fullpage" class="fullpage-box">
+        <div class="section section-01">
+        	 <div class="bg">
+                <img src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/01/report_2017/app/bg.jpg" alt="">
+            </div>
+        </div>
+        <div class="section section-01">
+        	 <div class="bg">
+                <img src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/01/report_2017/app/bg.jpg" alt="">
+            </div>
+        </div>
+        <div class="section section-01">
+        	 <div class="bg">
+                <img src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/01/report_2017/app/bg.jpg" alt="">
+            </div>
+        </div>
+    </div>
+        	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/fullPage.js/2.9.5/jquery.fullpage.js"></script>
+	<script>
+// 	var YD = {};
+// var template;
+
+// YD.Template = function(){
+    /** 变量 */
+    this._anchorLinks=['section-01','section-02','section-03','section-04','section-05','section-06','section-07','section-08','section-09','section-10','section-11','section-12','section-13','section-14'];
+
+//     /** 初始化 */
+//     this.init = function(){
+//         var self = this;
+//         self.events();
+//         if ( !$( 'html' ).hasClass( 'fp-enabled' ) ) {
+            $('#fullpage').fullpage({
+                anchors: self._anchorLinks,
+                afterLoad: function(anchorLink,index){
+    
+                    var $el=$("."+anchorLink+" .animated");
+                    
+                    $el.each(function(i,item){
+                        
+                        var _data_an=$(item).attr("data-an");
+                        var _data_delay=$(item).attr("data-delay");
+                        $(item).css({"animation-delay":_data_delay+"s","-webkit-animation-delay":_data_delay+"s","-moz-animation-delay":_data_delay+"s","-ms-animation-delay":_data_delay+"s"}).addClass(_data_an).css("opacity","1");
+                    });
+                },
+                onLeave:function(index,direction){
+    
+
+                    var $an_el=$(".animated");
+                   
+                    $an_el.each(function(j,item){
+                        var _data_an=$(item).attr("data-an");
+                        $(item).css("opacity","0").removeClass(_data_an);
+                    });
+                    
+                }
+            });
+//         }
+//     }
+
+//     this.events = function(){
+//         /** 事件方法 */
+//         var self = this;
+//     }
+// }
+// template = new YD.Template();
+// template.init();
+</script>
+</body>
+</html>

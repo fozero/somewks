@@ -1,0 +1,174 @@
+// 清除浏览器默认样式
+@import "node_modules/normalize.less/normalize.less";
+*{
+	box-sizing: border-box;
+	padding: 0;
+    margin: 0;
+}
+.clearfix{
+	zoom:1;//为了兼容IE
+	.clearfix:after{
+		content: "";//设置内容为空
+		height: 0;//高度为0
+		line-height: 0;
+		display: block;
+		visibility: hidden;
+		clear: both;
+	}
+}
+.new61{
+	background: #357ead;
+	padding-top:794px;
+	    height: 100%;
+	position: relative;
+	        min-width: 1000px;
+	.go-index{
+		display: block;
+	    width: 55px;
+	    padding: 8px 8px;
+	    line-height: 18px;
+	    font-size: 14px;
+	    text-decoration: none;
+	    color: #fcf6b8;
+	    background: #fa5d36;
+	    border-radius: 5px;
+	    text-align: center;
+	    position: fixed;
+	    top: 26px;
+	    left: 50%;
+	    margin-left: 502px;
+	    z-index: 100;
+	}
+	.shoplist{
+		list-style: none;
+		width: 1000px;
+		height: auto;
+    	min-height: 360px;
+    	margin: 0 auto;
+    	text-align: center;
+		.shoplist__item{
+			width: 235px;
+			height: 360px;
+			line-height: 26px;
+			border-radius: 20px;
+			float: left;
+			margin: 0 6px;
+			padding: 10px;
+			font-size: 18px;
+			color:#fff;
+			position: relative;
+			.shoplist__item__discount{
+				position: absolute;
+				top: 0;
+				right: 0;
+				color:#fff;
+				height: 78px;
+				margin-top: 10px;
+				width: 50px;
+    			text-align: center;
+			}
+			.shoplist__item__discount--bg{
+				width: 0; 
+				height: 0; 
+				border-top: 78px solid #30946c; 
+				border-left: 78px solid transparent; 
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+			.shoplist__item__img{
+				text-align: center;
+				padding: 5px 0;
+				img{
+					width: 200px;
+					height: 200px;
+				}
+			}
+			.shoplist__item__title{
+				text-align: center;
+			}
+			.shoplist__item__score{
+				position:relative;
+				.shoplist__item__score--discount{
+					color:#f8d662;
+					font-weight: bold;
+				}
+				.shoplist__item__score--origin{
+    				margin-left: 20px; 
+    				color:#cccccc;
+    				text-decoration: line-through;
+				}
+			}
+		}
+	}
+	.new61__banner{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 880px;
+		z-index: 9;
+	}
+	.new61__block01{
+		position: relative;
+		.new61__block01__container{
+			padding: 60px 0;
+			background:url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/06/new61/pc/block1_bg.png') center/cover;
+		}
+		.new61__block01__banner{
+			width: 100%;
+			height: 300px;
+		}
+		.block01__shoplist{
+			.shoplist__item{
+				background: #ff5c69;
+			}
+		}
+	}
+	.new61__block02{
+		position: relative;
+		.new61__block02__container{
+			padding: 60px 0;
+			background:url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/06/new61/pc/block2_bg.png') no-repeat center/100% 100%;
+		}
+		.new61__block02__banner{
+			width: 100%;
+			height: 300px;
+		}
+		.block02__shoplist{
+			.shoplist__item{
+				background: #00b3e3;
+				.shoplist__item__discount--bg{
+					border-top: 78px solid #ef5018; 
+				}
+			}
+		}
+	}
+	.new61__block03{
+		.new61__block03__container{
+			padding: 60px 0;
+			background:no-repeat url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/06/new61/pc/block3_bg.png') center/cover;
+			.new61__footer__rule{
+				width: 1000px;
+				line-height: 26px;
+				margin-top: 60px;
+				margin-left: 50%;
+				transform: translateX(-50%);
+				color:#fff;
+				font-size: 18px;
+			}
+		}
+		.new61__block03__banner{
+			width: 100%;
+			height: 300px;
+		}
+		.block03__shoplist{
+			.shoplist__item{
+				background: #00b09b;
+				.shoplist__item__discount--bg{
+					border-top: 78px solid #ff5c69; 
+				}
+			}
+		}
+	}
+}

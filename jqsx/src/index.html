@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>激情盛夏专题页</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.min.css">
+	<!-- <script type="text/javascript" src="./js/index.min.js"></script> -->
+</head>
+<body>
+	<div class="main">
+		<a href="/" class="go-index"></a>
+		<!-- 立即领取 -->
+		<!-- <div class="btn_get" onclick="get()"></div> -->
+		<!-- 未登录 -->
+		<!-- <div class="btn_get btn_get_login" onclick="login();"></div> -->
+		<!-- 已经领取 -->
+		<div class="btn_get btn_get_ok"></div>
+		<div class="block1">
+			<p class="desc">
+			活动期间，用户出借直投项目累计出借金额达到指定金额，即可获得相应的返现奖励。<br/>
+<b>累计出借金额=用户活动期间出借直投项目金额-用户活动期间债权转让的金额</b><br/>
+注：进程轴下方为累计出借金额，上方为返现金额</p>
+			<div class="borrow_money">
+				<!-- 查看此内容,请【<a href="javascript:;" onclick="login()">登录</a>】 -->
+				<span class="money"><span class="num">666,66.00</span>元</span>
+			</div>
+			<div class="progress">
+				<ul class="list clearfix">
+					<li class="item item1">
+						<i class="ic_timeline"></i>
+						<i class="cicle"></i>
+						<span class="money">249元</span>
+						<span class="borrow">10万</span>
+					</li>
+					<li class="item item2">
+						<i class="ic_timeline"></i>
+						<i class="cicle"></i>
+						<span class="money">588元</span>
+						<span class="borrow">20万</span>
+					</li>
+					<li class="item item3">
+						<i class="ic_timeline"></i>
+						<i class="cicle"></i>
+						<span class="money">1888元</span>
+						<span class="borrow">50万</span>
+					</li>
+					<li class="item item4">
+						<i class="ic_timeline"></i>
+						<i class="cicle"></i>
+						<span class="money">4688元</span>
+						<span class="borrow">100万</span>
+					</li>
+					<li class="item item5">
+						<i class="ic_timeline"></i>
+						<i class="cicle"></i>
+						<span class="money">18888元</span>
+						<span class="borrow">300万</span>
+					</li>
+					<li class="item item6">
+						<i class="ic_timeline"></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="btn_borrow" onclick="borrow();"></div>
+		<div class="block2">
+			<p class="rule">
+				活动规则<br/>
+1. 时间：待定<br/>
+2. 现金卡、加息券可用于出借直投项目（新手标不可用），有效期均为3天；<br/>
+3. 200元现金卡按出借金额的0.8%比例激活；<br/>
+4. 每笔出借仅可使用一张优惠券；<br/>
+5. 自动投标、手动投标均可参与本活动；<br/>
+6. 新手标、债权转让项目不计入累计出借金额；<br/> 
+7. 若用户发起债权转让，计算累计出借金额时将扣除债转的金额；<br/>
+8. 返现奖励以活动结束后用户达到的最高金额为准；<br/>
+9. 返现奖励将于活动后3个工作日内发放至用户账户。<br/>
+<span class="copyright">···本次活动最终解释权归银豆网所有···</span>
+			</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://static.yindou.com/web/js/jquery-1.11.1.min.js"></script>
+	<script>
+		var pos_index = 3;
+		initPos(pos_index);
+		function initPos(pos_index){
+		    if(pos_index=='0'){
+		    }else if(pos_index=='1'){
+		        $('.item').removeClass('active');
+		        $('.item1').addClass('active');
+		    }else if(pos_index=='2'){
+		        $('.item').removeClass('active');
+		        $('.item1').addClass('active');
+		        $('.item2').addClass('active');
+		    }else if(pos_index=='3'){
+		        $('.item').removeClass('active');
+		        $('.item1').addClass('active');
+		        $('.item2').addClass('active');
+		        $('.item3').addClass('active');
+		    }else if(pos_index=='4'){
+		        $('.item').removeClass('active');
+		        $('.item1').addClass('active');
+		        $('.item2').addClass('active');
+		        $('.item3').addClass('active');
+		        $('.item4').addClass('active');
+		    }else if(pos_index=='5'){
+		        $('.item').removeClass('active');
+		        $('.item1').addClass('active');
+		        $('.item2').addClass('active');
+		        $('.item3').addClass('active');
+		        $('.item4').addClass('active');
+		        $('.item5').addClass('active');
+		    }
+		}
+		function borrow(){
+			window.location.href="www.yindou.com/zhaiquangoumai";
+			// window.open('www.yindou.com/zhaiquangoumai','_blank');
+		}
+		function get(){
+		    $.ajax({
+		        type: 'POST',
+		        url: '/webapi/send_user_coupon',
+		        data: {},
+		        success: function(res){
+		            if(res.code==0){
+		                alert('领取成功');
+		                window.location.reload();//刷新页面
+		            }else{
+		                alert('领取失败');
+		            }
+		        },
+		        error:function(err){
+		            alert('服务器错误，稍后再试')
+		        }
+		    });
+		}
+		function login(){
+		    YD.showLogin(); return;
+		}
+	</script>
+</body>
+</html>

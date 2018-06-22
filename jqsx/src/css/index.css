@@ -1,0 +1,531 @@
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  /* 2 */
+}
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix .clearfix:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+.hide {
+  display: none !important;
+}
+.block {
+  display: block;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+ul {
+  list-style: none;
+}
+.go-index {
+  display: block;
+  width: 61px;
+  height: 61px;
+  text-decoration: none;
+  position: fixed;
+  top: 26px;
+  left: 50%;
+  margin-left: 502px;
+  z-index: 100;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/ic_index.png') no-repeat center / 61px 61px;
+}
+.main {
+  font-size: 22px;
+  height: 3086px;
+  min-width: 1000px;
+  position: relative;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/bg.jpg') no-repeat center / 100% 3086px;
+}
+.main .btn_get {
+  width: 387px;
+  height: 195px;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/get_btn.png') no-repeat center / 387px 195px;
+  margin: 0 auto;
+  cursor: pointer;
+  position: absolute;
+  top: 994px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.main .btn_get_login {
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/get_btn_login.png') no-repeat center / 387px 195px;
+}
+.main .btn_get_ok {
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/get_btn_ok.png') no-repeat center / 387px 195px;
+}
+.main .block1 {
+  width: 1040px;
+  height: 909px;
+  margin: 0 auto;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/block1_bg.png') no-repeat center / 1040px 909px;
+  position: absolute;
+  top: 1191px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  line-height: 38px;
+  /*首尾样式*/
+  /*激活状态*/
+}
+.main .block1 .desc {
+  color: #1882ad;
+  padding: 240px 95px 0;
+  line-height: 38px;
+  text-align: center;
+}
+.main .block1 .borrow_money {
+  width: 373px;
+  height: 213px;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/borrow_money_bg.png') no-repeat center / 373px 213px;
+  margin: 20px auto 0;
+  text-align: center;
+  padding-top: 114px;
+  color: #fc5f6a;
+  font-size: 24px;
+}
+.main .block1 .borrow_money a {
+  color: #fc5f6a;
+  text-decoration: none;
+}
+.main .block1 .borrow_money .money {
+  font-size: 14px;
+  color: #0195bd;
+}
+.main .block1 .borrow_money .money .num {
+  font-size: 40px;
+  color: #fc5f6a;
+}
+.main .block1 .progress {
+  margin-top: 100px;
+  color: #555555;
+  font-size: 22px;
+}
+.main .block1 .progress .list {
+  width: 880px;
+  margin: 0 auto;
+}
+.main .block1 .progress .list .item {
+  position: relative;
+  float: left;
+}
+.main .block1 .progress .list .item .cicle {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/ic_node.png') no-repeat center / 42px 42px;
+  position: absolute;
+  top: -5px;
+  left: 170px;
+  z-index: 9999;
+}
+.main .block1 .progress .list .item .ic_timeline {
+  height: 19px;
+  width: 180px;
+  display: inline-block;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_center.png') center / 180px 19px;
+}
+.main .block1 .progress .money {
+  position: absolute;
+  top: -70px;
+  left: 130px;
+  width: 130px;
+  width: 120px;
+  background: #d2d2d2;
+  text-align: center;
+  border-radius: 20px;
+}
+.main .block1 .progress .borrow {
+  position: absolute;
+  top: 60px;
+  left: 130px;
+  width: 120px;
+  text-align: center;
+}
+.main .block1 .progress .list .item:first-child .ic_timeline {
+  width: 80px;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_start.png') center / 80px 19px;
+}
+.main .block1 .progress .list .item:last-child .ic_timeline {
+  width: 80px;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_end.png') center / 80px 19px;
+}
+.main .block1 .progress .list .item:first-child .cicle {
+  left: 60px;
+}
+.main .block1 .progress .list .item:first-child .money,
+.main .block1 .progress .list .item:first-child .borrow {
+  left: 25px;
+}
+.main .block1 .progress .list .active .ic_timeline {
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_center_selected.png') center / 180px 19px;
+}
+.main .block1 .progress .list .active .cicle {
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/ic_node_selected.png') no-repeat center / 42px 42px;
+}
+.main .block1 .progress .list .active:first-child .ic_timeline {
+  width: 80px;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_start_selected.png') center / 80px 19px;
+}
+.main .block1 .progress .list .active:last-child .ic_timeline {
+  width: 80px;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_end_selected.png') center / 80px 19px;
+}
+.main .btn_borrow {
+  width: 661px;
+  height: 266px;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/borrower_btn.png') no-repeat center / 661px 266px;
+  margin: 0 auto;
+  cursor: pointer;
+  position: absolute;
+  top: 2090px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.main .block2 {
+  width: 1040px;
+  height: 759px;
+  margin: 0 auto;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/block2_bg.png') no-repeat center / 1040px 759px;
+  position: absolute;
+  top: 2268px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #1882ad;
+}
+.main .block2 .rule {
+  padding: 232px 80px 0;
+  line-height: 38px;
+}
+.main .block2 .rule .copyright {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+/*# sourceMappingURL=index.css.map */

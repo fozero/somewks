@@ -1,0 +1,288 @@
+// 清除浏览器默认样式
+@import "node_modules/normalize.less/normalize.less";
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	height: 100%;
+	// 小米
+	// font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+	// 简书
+	// font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	// 推荐写法
+	font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+.clearfix{
+	zoom:1;//为了兼容IE
+	.clearfix:after{
+		content: "";//设置内容为空
+		height: 0;//高度为0
+		line-height: 0;
+		display: block;
+		visibility: hidden;
+		clear: both;
+	}
+}
+.hide{
+	display: none !important;
+}
+.block{
+	display: block;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+ul{
+	list-style: none;
+}
+.go-index{
+	display: block;
+	width: 61px;
+	height: 61px;
+	text-decoration: none;
+	position: fixed;
+	top: 26px;
+	left: 50%;
+	margin-left: 502px;
+	z-index: 100;
+	background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/ic_index.png') no-repeat center/61px 61px;
+}
+
+
+.main{
+	font-size: 0.32rem;
+	    min-height: 40.8rem;
+	    width: 10.0rem;
+    position: relative;
+    background: #f6d6b2;
+	.bg{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 10.0rem;
+		height: 15.36rem;
+		background: url('../images/bg_app.png') no-repeat center/10.0rem 15.36rem;
+	}
+
+
+	
+	// background: url('../images/bg_app.png') no-repeat center/10.0rem 18.04rem;
+	.banner{
+		position: relative;
+		.banner_img{
+			width: 10.0rem;
+			height: 13.68rem;
+		}
+		.award_txt{
+			position: absolute;
+			left: 50%;
+			top: 8.106667rem;
+			display: inline-block;
+			width: 7.626667rem;
+			height: 0.48rem;
+			transform: translateX(-50%);
+			background: url('../images/award_txt_app.png') center/7.626667rem 0.48rem;
+		}
+		.award{
+			position: absolute;
+			left: 50%;
+			top: 9.226667rem;
+			display: inline-block;
+			width: 9.16rem;
+			height: 2.853333rem;
+			transform: translateX(-50%);
+			background: url('../images/award_app.png') center/9.16rem 2.853333rem;
+		}
+	}
+	.btn_get{
+		width: 5.16rem;
+		height: 2.6rem;
+		background: url('../images/btn_get_app.png') no-repeat center/5.16rem 2.6rem;
+		margin:0 auto;
+		cursor: pointer;
+		position: absolute;
+		top:12.293333rem;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.btn_get_login{
+		background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/get_btn_login.png') no-repeat center/387px 195px;
+	}
+	.btn_get_ok{
+		background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/get_btn_ok.png') no-repeat center/387px 195px;
+	}
+	.block1{
+		    width: 9.826667rem;
+			height: 12.053333rem;
+    		margin: 0 auto;
+			background: url('../images/borrow_bg_app.png') no-repeat center/9.826667rem 12.053333rem;
+			position: absolute;
+			top:14.386667rem;
+			left: 50%;
+			transform: translateX(-50%);
+				line-height: 38px;
+				.desc{
+					color: #1882ad;
+					padding: 2.4rem 0.666667rem 0;
+					line-height: 0.506667rem;
+					text-align: center;
+				}
+				.borrow_money{
+					width: 4.973333rem;
+					height:2.84rem;
+					background: url('../images/borrow_amount_bg_app.png') no-repeat center/4.973333rem 2.84rem;
+					margin: 0.266667rem auto 0;
+					text-align: center;
+				    padding-top: 1.226667rem;
+				    color: #fc5f6a;
+				    font-size: 0.32rem;
+				    a{
+				    	color: #fc5f6a;
+				    	text-decoration: none;
+				    }
+				    .money{
+				    	font-size:0.186667rem;
+				    	color: #0195bd;
+				    	.num{
+							font-size:0.533333rem;
+							color: #fc5f6a;
+				    	}
+				    }
+				}
+				.progress{
+					    margin-top: 1.333333rem;
+					    color: #555555;
+					    font-size: 0.293333rem;
+				}
+				.progress .list{
+					     width: 8.026667rem;
+				    margin: 0 auto;
+				}
+				.progress .list .item{
+					position: relative;
+					float: left;
+				}
+				.progress .list .item .cicle{
+					display: inline-block;
+					width: 0.56rem;
+					height: 0.56rem;
+					border-radius: 100%;
+					// background: #dfdfdf;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/ic_node.png') no-repeat center/0.56rem 0.56rem;
+					position: absolute;
+					top:0.213333rem;
+					left: 1.333333rem;
+					    z-index: 9999;
+				}
+				.progress .list .item .ic_timeline{
+					height: 0.253333rem;
+					width: 1.626667rem;
+					display: inline-block;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_center.png') center/1.626667rem 0.253333rem;
+					// background: #dfdfdf;
+				}
+				.progress .money{
+					 position: absolute;
+					           top: -0.933333rem;
+					               left: 1.06rem;
+					                   width: 1.533333rem;
+					                   height: 0.533333rem;
+					    background: #d2d2d2;
+					    text-align: center;
+					    border-radius: 0.266667rem;
+				}
+				.progress .borrow{
+					 position: absolute;
+					           top: 0.8rem;
+					              left: 1.733333rem;
+					                  width: 1.6rem;
+					                      text-align: center;
+				}
+				/*首尾样式*/
+				.progress .list .item:first-child .ic_timeline{
+					width: 0.666667rem;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_start.png') center/0.666667rem 0.253333rem;
+				}
+				.progress .list .item:last-child .ic_timeline{
+					width: 0.666667rem;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_end.png') center/0.666667rem 0.253333rem;
+				}
+				.progress .list .item:first-child .cicle{
+					left: 0.426667rem;
+				}
+				.progress .list .item:first-child .money,.progress .list .item:first-child .borrow{
+					left: 0;
+				}
+				/*激活状态*/
+				.progress .list .active .ic_timeline{
+					// background: #845FFD;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_center_selected.png') center/2.4rem 0.253333rem;
+				}
+				.progress .list .active .money{
+					background: #029ce5;
+    				color: #fff;
+				}
+				.progress .list .active .cicle{
+					// background: #845FFD;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/ic_node_selected.png') no-repeat center/0.56rem 0.56rem;
+				}
+				.progress .list .active:first-child .ic_timeline{
+					width: 1.066667rem;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_start_selected.png') center/1.066667rem 0.253333rem;
+				}
+				.progress .list .active:last-child .ic_timeline{
+					width: 1.066667rem;
+					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_end_selected.png') center/1.066667rem 0.253333rem;
+				}
+	}
+	.btn_borrow{
+		position: relative;
+		width: 8.813333rem;
+		height: 3.546667rem;
+		background: url('../images/btn_borrow_app.png') no-repeat center/8.813333rem 3.546667rem;
+		margin:0 auto;
+		cursor: pointer;
+		    z-index: 9;
+		position: absolute;
+			top:26.16rem;
+			left: 50%;
+			transform: translateX(-50%);
+			// .borrow_ic{
+			// 	position: absolute;
+			// 	top: 65px;
+   //  left: 100px;
+			// 	width: 105px;
+			// 	height: 86px;
+			// 	display: inline-block;
+			// 	background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/borrow_ic.png') no-repeat center/105px 86px;
+			// }
+	}
+	.block2{
+		    width: 9.986667rem;
+			height: 10.0rem;
+    		margin: 0 auto;
+			background: url('../images/rule_bg_app.png') no-repeat center/9.986667rem 10.0rem;
+			position: absolute;
+			top:29.573333rem;
+			left: 50%;
+			transform: translateX(-50%);
+    		color: #1882ad;
+			.rule{
+				padding: 2.24rem 0.933333rem 0;
+				line-height: 0.506667rem;
+				.copyright{
+					    display: block;
+					text-align: center;
+					margin-top:0.266667rem;
+					font-size: 0.213333rem;
+				}
+			}	
+	}
+}
+
+

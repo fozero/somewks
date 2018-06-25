@@ -37,7 +37,7 @@ var runSequence = require('run-sequence');
 * 编译less  处理浏览器前缀 支持sourcemaps
 */
 gulp.task('less',function(){
-	return gulp.src('./src/less/index.less')
+	return gulp.src('./src/less/*.less')
 		.pipe(less())
 		.pipe(sourcemaps.init())
 		.pipe(postcss([autoprefixer()]))

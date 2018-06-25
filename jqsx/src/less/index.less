@@ -112,7 +112,7 @@ ul{
 				    	font-size:14px;
 				    	color: #0195bd;
 				    	.num{
-							font-size:40px;
+							font-size:37px;
 							color: #fc5f6a;
 				    	}
 				    }
@@ -186,6 +186,10 @@ ul{
 					// background: #845FFD;
 					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/line_center_selected.png') center/180px 19px;
 				}
+				.progress .list .active .money{
+					background: #029ce5;
+    				color: #fff;
+				}
 				.progress .list .active .cicle{
 					// background: #845FFD;
 					background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/ic_node_selected.png') no-repeat center/42px 42px;
@@ -200,15 +204,26 @@ ul{
 				}
 	}
 	.btn_borrow{
+		position: relative;
 		width: 661px;
 		height: 266px;
 		background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/borrower_btn.png') no-repeat center/661px 266px;
 		margin:0 auto;
 		cursor: pointer;
+		    z-index: 9;
 		position: absolute;
 			top:2090px;
 			left: 50%;
 			transform: translateX(-50%);
+			.borrow_ic{
+				position: absolute;
+				top: 65px;
+    left: 100px;
+				width: 105px;
+				height: 86px;
+				display: inline-block;
+				background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/pc/borrow_ic.png') no-repeat center/105px 86px;
+			}
 	}
 	.block2{
 		    width: 1040px;

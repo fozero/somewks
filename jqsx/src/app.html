@@ -4,59 +4,59 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
 	<title>6月app活动 消夏补贴返现</title>
-	<link rel="stylesheet" type="text/css" href="./css/app.min.css">
 	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/app.min.css">
 </head>
 <body>
-	<div class="main">
+	<div class="main" id="app">
 		<div class="bg"></div>
 		<div class="banner">
-			<img class="banner_img" src="./images/banner_app.png" alt="">
+			<img class="banner_img" src="https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/app/banner_app.png" alt="">
 			<i class="award_txt"></i>
 			<i class="award"></i>
 		</div>
 		<!-- 立即领取 -->
-		<div class="btn_get" onclick="get()"></div>
+		<div class="btn_get" @click="get" v-if="isLogin"></div>
 		<!-- 未登录 -->
-		<!-- <div class="btn_get btn_get_login" onclick="login();"></div> -->
+		<div class="btn_get btn_get_login" @click="login" v-if="!isLogin"></div>
 		<!-- 已经领取 -->
-		<!-- <div class="btn_get btn_get_ok"></div> -->
+		<div class="btn_get btn_get_ok" @click="account" v-if="isGet"></div>
 		<div class="block1">
 			<p class="desc">
 			活动期间，用户出借直投项目累计出借金额达到指定金额，即可获得相应的返现奖励。<br/>
 <b>累计出借金额=用户活动期间出借直投项目金额-用户活动期间债权转让的金额</b><br/>
 注：进程轴下方为累计出借金额，上方为返现金额</p>
 			<div class="borrow_money">
-				<!-- 查看此内容,请【<a href="javascript:;" onclick="login()">登录</a>】 -->
-				<span class="money"><span class="num">1000,000.00</span>元</span>
+				<div v-if="!isLogin">查看此内容,请【<a href="javascript:;" @click="login">登录</a>】</div>
+				<span class="money" v-if="isLogin"><span class="num" v-text="money">1000,000.00</span>元</span>
 			</div>
 			<div class="progress">
 				<ul class="list clearfix">
-					<li class="item item1">
+					<li class="item item1" :class="id==1||id==2||id==3||id==4||id==5?'active':''">
 						<i class="ic_timeline"></i>
 						<i class="cicle"></i>
 						<span class="money">249元</span>
 						<span class="borrow">10万</span>
 					</li>
-					<li class="item item2">
+					<li class="item item2" :class="id==2||id==3||id==4||id==5?'active':''">
 						<i class="ic_timeline"></i>
 						<i class="cicle"></i>
 						<span class="money">588元</span>
 						<span class="borrow">20万</span>
 					</li>
-					<li class="item item3">
+					<li class="item item3" :class="id==3||id==4||id==5?'active':''">
 						<i class="ic_timeline"></i>
 						<i class="cicle"></i>
 						<span class="money">1888元</span>
 						<span class="borrow">50万</span>
 					</li>
-					<li class="item item4">
+					<li class="item item4" :class="id==4||id==5?'active':''">
 						<i class="ic_timeline"></i>
 						<i class="cicle"></i>
 						<span class="money">4688元</span>
 						<span class="borrow">100万</span>
 					</li>
-					<li class="item item5">
+					<li class="item item5" :class="id==5?'active':''">
 						<i class="ic_timeline"></i>
 						<i class="cicle"></i>
 						<span class="money">18888元</span>
@@ -68,7 +68,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="btn_borrow" onclick="borrow();"><i class="borrow_ic"></i></div>
+		<div class="btn_borrow" @click="borrow"><i class="borrow_ic"></i></div>
 		<div class="block2">
 			<p class="rule">
 				活动规则<br/>
@@ -85,24 +85,36 @@
 			</p>
 		</div>
 	</div>
-	<script type="text/javascript" src="https://static.yindou.com/web/js/jquery-1.11.1.min.js"></script>
+
+	<!-- <script type="text/javascript" src="https://static.yindou.com/web/js/jquery-1.11.1.min.js"></script> -->
 	<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
 	<script type="text/javascript">
 		// var LOGIN_STATUS='<{$is_login}>'?true:false;
-		var LOGIN_STATUS = true;
+		var LOGIN_STATUS = false;
 		function openLogin(){
 			var optStr = JSON.stringify({"page":"login","data":{}});
 		    if(appJsContext)  appJsContext.showView(optStr);
 		}
-
 		var vm = new Vue({
 		  el: '#app',
 		  data: {
 		  	isLogin:LOGIN_STATUS,
+		  	isGet:0,
+		  	money:'2000,000.00',
+		  	id:'4'
 		  },
 		  methods:{
-	        toLogin:function(){
+	        login:function(){
 	        	openLogin();
+	        },
+	        get:function(){
+
+	        },
+	        borrow:function(){
+	        	alert(1)
+	        },
+	        account:function(){
+
 	        }
 		  }
 		})

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>规则说明</title>
+		<meta charset = "utf-8">
+		<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+	    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	    <script src="jquery-3.2.1.min.js"></script>
+	    <script type="text/javascript">
+	    	var data = [
+	    		{"title":"投资特权",
+	    		"data":
+	    		[{"title":"会员红包","image":"privilege_gdfw",info:["10元现金券","50元现金券","100元现金券","200元现金券","300元现金券","500元现金券"]},
+	    		{"title":"升级礼包","image":"privilege_sjlb",info:["-","500积分","1000积分","2000积分","3000积分","5000积分"]},
+	    		{"title":"周年感恩","image":"privilege_znge",info:["20元现金卡","50元现金卡","80元现金卡","100元现金卡","200元现金卡","300元现金卡"]},
+	    		{"title":"积分加倍","image":"privilege_jfjb",info:["-","-","-","1.1倍","1.2倍","1.3倍"]}]},
+
+	    		{"title":"服务特权",
+	    		"data":
+	    		[{"title":"生日礼包","image":"privilege_srlb",info:["20元现金卡","50元现金卡","80元现金卡","100元现金卡","200元现金卡","300元现金卡"]},
+	    		{"title":"专属客服","image":"privilege_zskf",info:["✓","✓","✓","✓","✓","✓"]},
+	    		{"title":"高端服务","image":"privilege_gdfw",info:["-","-","-","-","✓","✓"]},
+	    		{"title":"随时转让","image":"privilege_sszr",info:["1笔","2笔","3笔","4笔","5笔","6笔"]}]},
+
+	    		{"title":"生活特权",
+	    		"data":
+	    		[{"title":"节日礼遇","image":"privilege_jrly",info:["-","-","✓","✓","✓","✓"]},
+	    		{"title":"商品折扣","image":"privilege_spzk",info:["-","9.9折","9.8折","9.7折","9.6折","9.5折"]},
+	    		{"title":"加油卡","image":"privilege_jyk",info:["-","-","-","-","✓","✓"]},
+	    		{"title":"免费体检","image":"privilege_mftj",info:["-","-","-","-","-","✓"]}]}
+	    	];
+	    	$(document).ready(function(){
+	    		var htmlString = "";
+	    		for (var i = 0; i < data.length; i++) 
+	    		{
+	    			var item = data[i];
+
+	    			htmlString += "<div>";
+	    			htmlString += "<div style='background:white;margin-bottom:8px;'>";
+	    			//标题
+	    			htmlString += "<p class='title'>"+ item.title +"</p>"
+	    			//按钮
+	    			htmlString += "<div>";
+	    			for (var j = 0; j < item.data.length; j++) 
+	    			{
+	    				var buttonInfo = item.data[j];
+	    				var image = "<img src='"+ buttonInfo.image + ".png" +"'>";
+	    				var id = i * 4 + j;
+                        if(j == 0)
+                        {
+                            if (i == 0) htmlString += "<div class='button button-selected' "+ "style='border:none;'" +" id='"+ id +"'>";
+                            else htmlString += "<div class='button' "+ "style='border:none;'" +" id='"+ id +"'>";
+                        }else htmlString += "<div class='button' id='"+ id +"'>";
+	    				htmlString += image;
+						htmlString += "<p>" + buttonInfo.title + "</p>";
+						htmlString += "</div>";
+	    			};
+	    			htmlString += "</div>";
+	    			htmlString += "</div>";
+
+	    			//表格
+	    			htmlString += "<div class='info' id='info" + i + "'>";
+                    if (i == 0)
+                    {
+                        var infoData = data[0].data[0].info;
+                        htmlString += "<table>";
+                        htmlString += "<tr><th>银卡</th><th>金卡</th><th>白金卡</th><th>钻石卡</th><th>黑卡</th><th>至尊卡</th></tr>"
+                        htmlString += "<tr>";
+                        for (var k = 0; k < infoData.length; k++)
+                        htmlString += "<td>"+ infoData[k] + "</td>";
+                        htmlString += "</tr>";
+                        htmlString += "</table>";
+                    }
+	    			htmlString += "</div>";
+                              
+	    			htmlString += "</div>";
+	    		};
+	    		$("body").html(htmlString);
+                $("#info0").slideDown(0);
+
+
+	    		$(".button").click(function(event)
+	    		{
+	    			if ($(this).hasClass("button-selected")) return;
+	    			$(".button-selected").removeClass("button-selected");
+	    			$(this).addClass("button-selected");
+
+	    			var info = $(this).parent().parent().next();
+	    			var id = $(this).attr("id");
+	    			var y = parseInt(id / 4);
+	    			var x = id % 4;
+	    			var item = data[y];
+	    			var infoData = item.data[x].info;
+	    			var htmlString = "<table>";
+	    			htmlString += "<tr><th>银卡</th><th>金卡</th><th>白金卡</th><th>钻石卡</th><th>黑卡</th><th>至尊卡</th></tr>"
+	    			htmlString += "<tr>";
+	    			for (var i = 0; i < infoData.length; i++) 
+	    			{
+	    				htmlString += "<td>"+ infoData[i] + "</td>";
+	    			};
+	    			htmlString += "</tr>";
+	    			htmlString += "</table>";
+
+	    			//$(unselected).html("");
+	    			info.html(htmlString);
+                    if (info.css("display") != "none")
+                    {
+                        info.fadeIn();
+                        return;
+                    }
+                    info.slideDown();
+                    var unselected =  ".info[id!=info" + y + "]";
+                    $(unselected).each(function(){
+                        if ($(this).css("display") != "none")$(this).slideUp();
+                    });
+	    		});
+	    	});
+	    </script>
+		<style type = "text/css">
+			body 
+			{
+				background: #EEEEEE;
+				padding: 0px;
+				margin: 0px;
+				visibility: visible; 
+				color: #888; 
+				font-size: 13px;
+				text-align: center;
+	            box-sizing: border-box;
+			}
+
+			div 
+			{
+				padding: 0px;
+				margin: 0px;
+			}
+
+			p {margin: 0px;}
+            
+            img
+            {
+                width: 45px;
+                height: 45px;
+            }
+
+			table
+			{
+				width: 100%;
+				text-align: center;
+				color: black;
+				border-collapse: collapse;
+				border: 0.5px solid #E1E1E1;
+			}
+			th
+			{
+				background: #D7C689;
+				border: 0.5px solid #E1E1E1;
+                font-size:10px;
+                padding: 8px 0px;
+			}
+
+			td
+			{
+				background: #FFFCF2;
+				border: 0.5px solid #E1E1E1;
+                font-size:10px;
+                padding: 8px 0px;
+			}
+
+			.title
+			{
+				text-align: left;
+				padding: 10px 0px;
+				margin-left: 15px;
+				border-bottom: 1px dashed #E1E1E1;
+			}
+	 
+
+	        .button
+	        {
+	        	display: inline-block;
+	        	width: 24.65%;
+	        	margin: auto;
+	        	padding: 15px 0px;
+	        	border-left: 0.5px solid #E1E1E1;
+	        }
+
+	        .button-selected
+	        {
+				background-color: #FFFCF2;
+	        }
+
+	        .info
+	        {
+                margin: 0px 5px 8px 5px;
+                display: none;
+	        }
+		</style>
+	</head>
+
+	<body>
+		
+	</body>
+</html>

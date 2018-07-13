@@ -549,6 +549,15 @@ ul {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
+.main .btn_borrow .borrow_ic {
+  position: absolute;
+  left: 0;
+  top: 0.64rem;
+  width: 0.893333rem;
+  height: 0.813333rem;
+  display: inline-block;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/app/ic_2_app.png') no-repeat center / 0.893333rem 0.813333rem;
+}
 .main .block2 {
   width: 9.986667rem;
   height: 10.0rem;
@@ -570,6 +579,15 @@ ul {
   text-align: center;
   margin-top: 0.266667rem;
   font-size: 0.213333rem;
+}
+.main .block2 .ic_2 {
+  position: absolute;
+  right: 0.266667rem;
+  top: 8.986667rem;
+  width: 1.613333rem;
+  height: 1.226667rem;
+  display: inline-block;
+  background: url('https://caiyunupload.b0.upaiyun.com/ydimg/theme/2018/07/summer/app/ic_1_app.png') center / 1.613333rem 1.226667rem;
 }
 
 /*# sourceMappingURL=app.css.map */

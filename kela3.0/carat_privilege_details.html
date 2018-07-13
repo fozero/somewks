@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>规则说明</title>
+	<meta charset = "utf-8">
+	<meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	<style type = "text/css">
+		body 
+		{
+			background: #EEEEEE;
+			padding: 0px;
+			margin: 0px;
+			visibility: visible; 
+			color: #888; 
+			font-size: 13px;
+            box-sizing: border-box;
+		}
+
+		div 
+		{
+			background: white;
+			padding: 0px 15px;
+			margin-bottom: 10px;
+		}
+
+		p {margin: 0px;}
+
+		span
+		{
+			background: linear-gradient(#D0D3DB, #AFB2BC);
+			padding: 2px 4px;
+			font-size: 10px;
+			width: 80px;
+			border-radius: 3px;
+		}
+
+		table
+		{
+			width: 100%;
+			margin-top: 10px;
+			text-align: center;
+			color: black;
+			border-collapse: collapse;
+			border: 0.5px solid #E1E1E1;
+		}
+		th
+		{
+			background: #D7C689;
+			padding: 3px 0px;
+			border: 0.5px solid #E1E1E1;
+		}
+
+		td
+		{
+			background: #FFFCF2;
+			padding: 3px 0px;
+			border: 0.5px solid #E1E1E1;
+		}
+
+		.card
+		{
+			text-align: center;
+			padding: 0px;
+			display: none;
+		}
+
+		.icon
+		{
+			width: 60px;
+			height: 60px;
+			margin: 20px 0px 10px 0px;
+		}
+
+		.level
+		{
+			padding: 0px;
+			margin: 15px 0px 0px 0px;
+			position: relative;
+			width: 100%;
+			height: 45px;
+			line-height: 45px;
+			border-top: 0.5px solid #E1E1E1;
+		}
+
+		.title
+		{
+			text-align: left;
+			padding-bottom: 5px;
+			margin-bottom: 10px;
+			border-bottom: 1px dashed #E1E1E1;
+		}
+
+		.prompt
+		{
+            color: #888;
+			font-size: 10px;
+			text-align: left;
+			padding-bottom: 5px;
+			margin-bottom: 10px;
+			border-bottom: 1px dashed #E1E1E1;
+		}
+
+		.details
+		{
+			padding: 10px 15px;
+		}
+
+	</style>
+	
+	<script type = "text/javascript">
+		var color = ["linear-gradient(#D0D3DB, #AFB2BC)",
+					"linear-gradient(#E8D0A7, #D3BC91)",
+					"linear-gradient(#EFAC78, #D8915A)",
+					"linear-gradient(#91BEFC, #6C9DDF)",
+					"linear-gradient(#91BEFC, #6C9DDF)",
+					"linear-gradient(#997ECC, #62479B)"]
+		var levelTitles = ["银卡","金卡","白金卡","钻石卡","黑卡","至尊卡"]
+		var detailsArray = [
+								//会员红包
+								[
+									{"title":"","content":"每月1日根据当前VIP等级发放会员红包，每人每月限一次；有效期15天，出借网站期限≥300天的直投项目时可用","prompt":"","table":""},
+									{"title":"","content":"会员红包发放不叠加，如在当月升级前获得会员红包，升级后的会员红包将在次月进行发放。","prompt":"","table":""},
+
+									{"title":"","content":"每人每月限领一次，级别越高，额度越大。","prompt":"红包均为0.5%激活","table":[["VIP等级","会员红包"],["银卡","10元现金券"],["金卡","50元现金券"],["白金卡","100元现金券"],["钻石卡","200元现金券"],["黑卡","300元现金券"],["至尊卡","500元现金券"]]}
+								],
+								//升级礼包
+								[
+									{"title":"","content":"VIP等级升级当天，可获得升级礼一份。","prompt":"","table":[["VIP等级","升级礼包"],["金卡","500积分"],["白金卡","1000积分"],["钻石卡","2000积分"],["黑卡","3000积分"],["至尊卡","5000积分"]]}
+								],
+								//周年感恩
+								[
+									{"title":"","content":"用户注册满周年时，根据当前VIP等级可获得相应周年理财现金卡一张，有效期3天，按出借本金的1%比例激活。","prompt":"","table":[["VIP等级","周年感恩礼"],["银卡","20元"],["金卡","50元"],["白金卡","80元"],["钻石卡","100元"],["黑卡","200元"],["至尊卡","300元"]]}
+								],
+								//积分加倍
+								[
+									{"title":"","content":"钻石卡用户积分按【本金/2000*持有天数*1.1】计算；<br/>黑卡用户积分按【本金/2000*持有天数*1.2】计算；<br/>至尊卡用户积分按【本金/2000*持有天数*1.3】计算。","prompt":"","table":""}
+								],
+								//生日礼包
+								[
+									{"title":"","content":"用户生日当天，根据当前VIP等级可获得相应理财现金卡一张，有效期3天，按出借本金的1%比例激活。","prompt":"","table":[["VIP等级","生日特权"],["银卡","20元"],["金卡","50元"],["白金卡","80元"],["钻石卡","100元"],["黑卡","200元"],["至尊卡","300元"]]}
+								],
+								//专属客服
+								[
+									{"title":"","content":"每位成功注册银豆网的用户，均拥有一名专属微信客服，用户可登陆手机APP，点击客服图标并加为好友即可。如有问题，可与专属客服进行沟通。","prompt":"","table":""}
+								],
+								//高端服务
+								[
+									{"title":"","content":"黑卡及以上用户可优先申请参加银豆网线下俱乐部，不仅能和来自各地的豆粉进行交流学习，还可以和银豆网CEO面对面交流，了解银豆，走近银豆，爱上银豆。","prompt":"","table":""},
+                                    {"title":"","content":"当用户VIP等级由黑卡或至尊卡降至钻石卡时，此用户可继续享受高端增值服务；若用户等级降至低于钻石卡时将不再享受高端增值服务。","prompt":"","table":""}
+								],
+								//随时转让
+								[
+									{"title":"","content":"银豆网为用户提供便捷的站内项目转让功能，如用户着急用钱，出借次日即可通过站内项目转让功能将手中的已购项目全部/部分转让，同时可以溢价或折价出售。","prompt":"","table":[["VIP等级","同一时间转让项目笔数"],["银卡","1笔"],["金卡","2笔"],["白金卡","3笔"],["钻石卡","4笔"],["黑卡","5笔"],["至尊卡","6笔"]]}
+								],
+								//节日礼遇
+								[
+									{"title":"","content":"白金卡及以上用户，在每年春节及中秋节时可获得节日礼品一份，节日礼遇会根据不同节日与不同等级有所不同，等级越高，礼品越多。","prompt":"","table":""}
+								],
+								//商品折扣
+								[
+									//{"title":"","content":"VIP用户在降级后会获得历史最高等级，历史最高等级以降级前的VIP等级确定，并享有商品折扣荣誉特权。","prompt":"","table":""},
+									//{"title":"商品折扣荣誉特权有效期说明","content":"商品折扣荣誉特权有效期为一个月，特权期间如果升级至历史最高等级及以上级别将享受最新等级待遇（有效期按照保留期为准）。如果升级至低于历史最高等级的级别，有效期不会按照升级至新的等级开始重新计算，依旧按照原先剩余天数为剩余有效期限。","prompt":"","table":""},
+									{"title":"商品折扣","content":"使用积分兑换商品及券码时，银卡用户按商品标价进行兑换；金卡及以上用户根据VIP等级享受9.5折~9.9折积分兑换优惠。","prompt":"","table":[["VIP等级","商品折扣"],["银卡","无折扣"],["金卡","9.9折"],["白金卡","9.8折"],["钻石卡","9.7折"],["黑卡","9.6折"],["至尊卡","9.5折"]]}
+								],
+								//加油卡
+								[
+									{"title":"","content":"每个自然年的12月31日统计当前的VIP等级，黑卡及至尊卡的用户可获得200元的加油卡一张。","prompt":"","table":""}
+								],
+								//免费体检
+								[
+									{"title":"","content":"每个自然年的12月31日统计当前的VIP等级，至尊卡用户可获得免费体检一次。","prompt":"","table":""}
+								]
+							]
+
+		function setContent (data)
+		{
+			/**
+				data == null 需要登录
+				data
+				{
+					"privilege_type" : "特权类型",
+					"privilege_level" : "用户所在等级"
+				}
+
+				datas array
+				{
+					"title" : "标题",
+					"content" : "内容",
+					"prompt" : "提示",
+					"table" : "表格"
+				}
+			**/
+			var card = document.getElementById("card")
+			var levelLabel = document.getElementById("minLevel")
+			var userLabel = document.getElementById("currentLevel")
+			if (data) 
+			{
+				var json;
+				if(Object.prototype.toString.call(data) != "[object String]") json = data
+				else JSON.parse(data)
+
+				var type = data.privilege_type//特权类型1 ~ 12
+				var privilege//特权等级，根据type判断
+				if (type == 4) privilege = 4
+				else if (type == 9) privilege = 3
+				else if (type == 10) privilege = 2
+				else if (type == 11 || type == 7) privilege = 5
+				else if (type == 12) privilege = 6
+				else privilege = 1
+
+				var user = data.privilege_level//用户等级1 ~ 6
+                var userMax = data.privilege_max
+
+				card.style.display = (user >= privilege || (type == 7 && user == 4 && userMax == 5)) ?  "none" : "inherit"
+				levelLabel.innerText = levelTitles[privilege - 1];
+				userLabel.innerText = levelTitles[user - 1];
+
+				//设置等级标签背景色
+				if (privilege <= color.length) levelLabel.style.background = color[privilege - 1]
+				else levelLabel.style.background = color[0]
+
+				if (user <= color.length) userLabel.style.background = color[user - 1]
+				else userLabel.style.background = color[0]
+
+				var detailsData = detailsArray[type - 1]
+				var detailsDiv = document.getElementById("details")
+				var detailsHtml = ""
+				for (var i = 0;i < detailsData.length; i++)
+				{
+					var item = detailsData[i]
+					var title = item.title
+					var content = item.content
+					var prompt = item.prompt
+					var table = item.table
+
+					var div = "<div class = 'details'>";
+					if (title && title.length > 0) div += ("<p class = 'title'>" + title + "</p>")
+					if (content && content.length > 0) div += ("<p>" + content + "</p>")
+					if (prompt && prompt.length > 0) div += ("<p class = 'prompt'>" + prompt + "</p>")
+					if (table && table.length > 0)
+					{
+						div += "<table>"
+						for (var j = 0; j < table.length; j++) 
+						{
+							var tableItem = table[j]
+							div += "<tr>"
+							for (var k = 0; k < tableItem.length; k++) 
+							{
+								if (j == 0) div += ("<th>" + tableItem[k] + "</th>")
+								else div += ("<td>" + tableItem[k] + "</td>")
+							}
+							div += "</tr>"
+						}
+						div += "</table>"
+					}
+					div += "</div>"
+					detailsHtml += div
+                    
+                    if (type == 7 && user >= 5) break
+				}
+				detailsDiv.innerHTML = detailsHtml
+			}else
+			{
+				card.style.display = "none"
+				card.style.background = color[0]
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<div id = "card" class = "card">
+		<img class = "icon" src = "carat_privilege.png"/>
+		<p>您暂时不能享用此特权</p>
+		<div class = "level">
+			<p style = "position:absolute;left:0px;top:0px;bottom:0px;width:50%;border-right:0.5px solid #E1E1E1;">可享等级：<span id = "minLevel" style = "color:white;">钻石卡</span></p>
+			<p style = "position:absolute;right:0px;top:0px;bottom:0px;width:50%;">当前等级：<span id = "currentLevel" style = "color:white;">&nbsp金&nbsp卡&nbsp</span></p>
+		</div>
+	</div>
+	<div id = "details" style = "background:transparent;padding:0px;margin-bottom:0px;">
+	</div>
+</body>
+</html>

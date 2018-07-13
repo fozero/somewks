@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>规则说明</title>
+	<meta charset = "utf-8">
+	<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	<style type = "text/css">
+		body 
+		{
+			background: #EEEEEE;
+			padding: 0px;
+			margin: 0px;
+			visibility: visible; 
+			color: #888; 
+			font-size: 13px;
+            box-sizing: border-box;
+		}
+
+		div 
+		{
+			background: white;
+			padding: 15px 15px;
+			margin-bottom: 10px;
+		}
+
+		p {margin: 0px;}
+
+		table
+		{
+			width: 100%;
+			margin-top: 10px;
+			text-align: center;
+			color: black;
+			border-collapse: collapse;
+			border: 0.5px solid #E1E1E1;
+		}
+		th
+		{
+			background: #D7C689;
+			padding: 3px 0px;
+			border: 0.5px solid #E1E1E1;
+		}
+
+		td
+		{
+			background: #FFFCF2;
+			padding: 3px 0px;
+			border: 0.5px solid #E1E1E1;
+		}
+
+		.level-card
+		{
+			background: linear-gradient(#D0D3DB, #AFB2BC);
+			border-radius: 4px;   
+  			box-shadow: 0px 3px 3px #999;
+  			color: white;
+  			position: relative;;
+		}
+
+		.title
+		{
+			text-align: left;
+			padding-bottom: 5px;
+			margin-bottom: 10px;
+			border-bottom: 1px dashed #E1E1E1;
+		}
+    
+        .detils
+        {
+            padding: 10px 0px;
+        }
+	</style>
+
+	<script type = "text/javascript">
+		var color = ["linear-gradient(#D0D3DB, #AFB2BC)",
+					"linear-gradient(#E8D0A7, #D3BC91)",
+					"linear-gradient(#EFAC78, #D8915A)",
+					"linear-gradient(#91BEFC, #6C9DDF)",
+					"linear-gradient(#91BEFC, #6C9DDF)",
+					"linear-gradient(#997ECC, #62479B)"]
+		function setContent (data)
+		{
+
+			var dateLabel = document.getElementById("validDate")
+			var moneyLabel = document.getElementById("allMoney")
+			var infoLabel = document.getElementById("upgradeInfo")
+			var titleLabel = document.getElementById("moneyTitle")
+			var loginButton = document.getElementById("loginButton")
+			var card = document.getElementById("card")
+			
+			if (data) 
+			{
+				loginButton.style.visibility = "hidden"
+				dateLabel.style.visibility = "visible"
+				moneyLabel.style.visibility = "visible"
+				infoLabel.style.visibility = "visible"
+				titleLabel.style.visibility = "visible"
+
+				var json;
+				if(Object.prototype.toString.call(data) != "[object String]") json = data
+				else JSON.parse(data)
+                
+                /**
+                    {
+                        "data" : "有效日期",
+                        "money" : "总投资额",
+                        "info" : "升级下一级的信息",
+                        "level" : "用户等级"
+                    }
+                 **/
+
+                var validDate = (data.date && data.date.length > 0) ? ("有效期到" + data.date + "，每天更新") : "每天更新"//"有效期到2018-09-09，每天更新"
+				var allMoney = data.money + "<span style = 'font-size:15px;'>元</span>"//"600000元"
+				var upgradeInfo = data.info //"截止到2017-07-16，您当前的等级为黄金卡，距升级为钻石卡还差100000元。"
+				var level = data.level
+
+				dateLabel.innerText = validDate;
+				moneyLabel.innerHTML = allMoney
+				infoLabel.innerText = upgradeInfo
+
+				if (level <= color.length) card.style.background = color[level - 1]
+				else card.style.background = color[0]
+			}else
+			{
+				loginButton.style.visibility = "visible"
+				dateLabel.style.visibility = "hidden"
+				moneyLabel.style.visibility = "hidden"
+				infoLabel.style.visibility = "hidden"
+				titleLabel.style.visibility = "hidden"
+				card.style.background = color[0]
+			}
+		}
+    
+        function skip()
+        {
+            self.location = "carat_privilege_info.html"
+        }
+	</script>
+</head>
+
+<body>
+	<div>
+		<div id = "card" class = "level-card">
+			<p id = "validDate" style = "color:green;text-align:right;">有效期到2018-08-09，每天更新</p>
+			<p id = "allMoney" style = "margin-top:15px;font-size:35px;text-align:center;">500000元</p>
+			<p id = "moneyTitle" style = "margin-bottom:15px;font-size:20px;text-align:center;">在投金额</p>
+			<p id = "upgradeInfo" style = "text-align:left;">截止到2017-06-16，您当前的等级为黄金卡，距升级为钻石卡还差100000元。</p>
+			<button id = "loginButton" style = "background:transparent;position:absolute;left:0px;top:0px;bottom:0px;width:100%;border-radius:4px;border:none;font-size:25px;color:white;visibility:hidden;" onclick = "appJsContext.showView({'page':'login'})">请登录</button>
+		</div>
+        <p class="title" onclick="skip()">特权介绍<sup style="margin:0px 2px;padding:0px 2px;border:0.5px solid red;font-size:8px;color:red">查看</sup><img style="height:15px;float:right;" src="arrow_right.png"/></p>
+		<p style = "margin-top:20px;">银豆网VIP等级根据在投金额进行等级划分，在投金额依据每日出借直投项目的在投金额决定，当用户每日的在投金额达到升级条件时，次日即可升级。在投金额越高，可享受的VIP特权就更多哦！至尊卡礼遇为银豆网最高VIP礼遇，可享银豆网所有VIP特权。</p>
+	</div>
+
+	<div>
+		<div class = "detils">
+			<p class = "title">在投金额</p>
+			<p>在投金额是指用户在银豆网出借直投项目的总待收本金（包括新手标），不包括转让项目的金额。</p>
+			<table>
+    			<tr>
+        			<th>等级</th>
+        			<th>条件</th>
+    			</tr>
+    			<tr>
+        			<td>银卡</td>
+        			<td>0 ≤ 在投金额 &lt; 5万元</td>
+    			</tr>
+    			<tr>
+        			<td>金卡</td>
+        			<td>5万 ≤ 在投金额 &lt; 10万元</td>
+    			</tr>
+    			<tr>
+        			<td>白金卡</td>
+        			<td>10万元 ≤ 在投金额 &lt; 50万元</td>
+    			</tr>
+    			<tr>
+        			<td>钻石卡</td>
+        			<td>50万元 ≤ 在投金额 &lt; 100万元</td>
+    			</tr>
+    			<tr>
+        			<td>黑卡</td>
+        			<td>100万元 ≤ 在投金额 &lt; 300万元</td>
+    			</tr>
+    			<tr>
+        			<td>至尊卡</td>
+        			<td>在投金额 ≥ 300万元</a></td>
+    			</tr>
+			</table>
+		</div>
+		<div class = "detils">
+			<p class = "title">VIP等级保留期</p>
+			<p>当用户当前「在投金额」不满足当前等级条件时，会给予一定的等级保留期，若保留期过后仍然不满足等级条件时，将于次日降级至当前「在投金额」对应的VIP等级。</p>
+			<table>
+    			<tr>
+        			<th>用户VIP等级</th>
+        			<th>保留期</th>
+    			</tr>
+    			<tr>
+        			<td>银卡</td>
+        			<td>/</td>
+    			</tr>
+    			<tr>
+        			<td>金卡</td>
+        			<td>2个月</td>
+    			</tr>
+    			<tr>
+        			<td>白金卡</td>
+        			<td>3个月</td>
+    			</tr>
+    			<tr>
+        			<td>钻石卡</td>
+        			<td>4个月</td>
+    			</tr>
+    			<tr>
+        			<td>黑卡</td>
+        			<td>5个月</td>
+    			</tr>
+                <tr>
+                    <td>至尊卡</td>
+                    <td>6个月</td>
+                </tr>
+			</table>
+		</div>
+		<div class = "detils">
+			<p class = "title">历史最高等级</p>
+            <p>历史最高等级为用户历史达到的最高VIP等级，用户在降级后可在“我的账户”中查看历史最高等级。</p>
+		</div>
+		<div class = "detils">
+			<p class = "title">高端增值服务荣誉特权</p>
+            <p>当用户VIP等级由黑卡或至尊卡降至钻石卡时，此用户可继续享受高端增值服务；若用户等级降至低于钻石卡时将不再享受高端增值服务。</p>
+		</div>
+	</div>
+</body>
+</html>
